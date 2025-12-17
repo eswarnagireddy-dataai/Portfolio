@@ -1,10 +1,10 @@
-- title: "Enterprise Predictive Maintenance"
-  description: "Designed and led the implementation of a predictive maintenance system for a Global 500 manufacturing firm."
+- title: "Enterprise Data Strategy"
+  description: "Designed and executed a data strategy for a B2C retail company."
   image: "project1.jpg"
-  challenge: "Unplanned downtime was costing the client $2M+ annually in lost production."
-  solution: "Implemented IoT sensor data ingestion pipeline and developed distinct ML models for failure prediction."
-  impact: "Reduced downtime by 35% within 6 months, saving approx $1.5M/year."
-  tags: ["Machine Learning", "IoT", "Strategy"]
+  challenge: "Matured data strategy to enable self-service analytics and AI readiness."
+  solution: "Implemented a data strategy framework and executed a governance program to enable self-service analytics and AI readiness."
+  impact: "Enabled self-service analytics and AI readiness, leading to a 20% increase in data literacy and a 15% increase in AI readiness, in 6 months."
+  tags: ["Data Strategy","Machine Learning", "AI Readiness", "Self-service Analytics", "Data Governance"]
 
 - title: "Customer Churn Reduction Strategy"
   description: "End-to-end data strategy overhaul for a leading FinTech startup."
@@ -21,3 +21,11 @@
   solution: "Architected a RAG (Retrieval-Augmented Generation) system usage pattern with strict data privacy controls."
   impact: "Mockup and pilot demonstrated a 60% reduction in research time."
   tags: ["Generative AI", "LLM", "Efficiency"]
+
+- title: "AI-Driven Customer Support"
+  description: "Supporting a B2C Retail company with AI-driven customer support."
+  image: "project4.jpg"
+  challenge: "Associates spent 20+ hours/week on customer support, answering common questions."
+  solution: "Architected a RAG (Retrieval-Augmented Generation) system usage pattern with strict data privacy controls."
+  impact: "Mockup and pilot demonstrated a 60% reduction in research time."
+  tags: ["Generative AI", "LLM", "Efficiency","Customer Support","Customer Experience","Cost Reduction"]

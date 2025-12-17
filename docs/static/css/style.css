@@ -40,7 +40,7 @@ a {
 .site-header {
     background-color: var(--white);
     padding: 1.5rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -99,8 +99,11 @@ a {
 
 /* Hero */
 .hero {
-    padding: 6rem 0;
-    background: linear-gradient(135deg, #eef2f7 0%, #ffffff 100%);
+    padding: 8rem 0;
+    background: linear-gradient(135deg, rgba(238, 242, 247, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%), url('../img/background_1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
 }
 
@@ -142,6 +145,13 @@ a {
 }
 
 /* Services */
+.services {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../img/background_2.png');
+    background-size: cover;
+    background-position: center;
+    background-attach: fixed;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -149,17 +159,17 @@ a {
 }
 
 .service-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-top: 4px solid var(--accent-color);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .service-card h3 {
@@ -238,7 +248,9 @@ a {
 /* Contact */
 .contact {
     text-align: center;
-    background-color: var(--secondary-color);
+    background: linear-gradient(rgba(45, 55, 72, 0.9), rgba(45, 55, 72, 0.9)), url('../img/background_3.png');
+    background-size: cover;
+    background-position: center;
     color: var(--white);
 }
 
@@ -295,20 +307,20 @@ a {
     .site-header .container {
         flex-direction: column;
     }
-    
+
     .site-nav {
         margin-top: 1rem;
     }
-    
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .site-footer .container {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .social-links {
         margin-top: 1rem;
     }
