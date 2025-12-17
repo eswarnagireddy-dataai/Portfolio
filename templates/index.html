@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Transforming Data into <span class="highlight">Strategic Advantage</span></h1>
+        <p class="hero-subtitle">{{ profile.bio }}</p>
+        <div class="hero-cta">
+            <a href="#projects" class="btn btn-secondary">View Case Studies</a>
+            <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section services">
+    <div class="container">
+        <h2 class="section-title">Expertise</h2>
+        <div class="services-grid">
+            {% for service in profile.services %}
+            <div class="service-card">
+                <div class="service-icon icon-{{ service.icon }}"></div>
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section projects">
+    <div class="container">
+        <h2 class="section-title">Selected Engagement</h2>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-tags">
+                        {% for tag in project.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <h3>{{ project.title }}</h3>
+                    <p class="challenge"><strong>Challenge:</strong> {{ project.challenge }}</p>
+                    <p class="impact"><strong>Impact:</strong> {{ project.impact }}</p>
+                    <a href="#" class="read-more">Read Case Study &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- Placeholder for future projects -->
+            <div class="project-card placeholder-card">
+                <div class="project-content">
+                    <h3>Future Project</h3>
+                    <p>Coming soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <h2 class="section-title">Let's Discuss Your Strategy</h2>
+        <p>Ready to unlock the potential of your data? Reach out for a confidential discussion.</p>
+        <a href="mailto:{{ profile.email }}" class="btn btn-large">{{ profile.email }}</a>
+    </div>
+</section>
+
+{% endblock %}

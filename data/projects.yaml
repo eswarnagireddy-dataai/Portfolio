@@ -1,0 +1,23 @@
+- title: "Enterprise Predictive Maintenance"
+  description: "Designed and led the implementation of a predictive maintenance system for a Global 500 manufacturing firm."
+  image: "project1.jpg"
+  challenge: "Unplanned downtime was costing the client $2M+ annually in lost production."
+  solution: "Implemented IoT sensor data ingestion pipeline and developed distinct ML models for failure prediction."
+  impact: "Reduced downtime by 35% within 6 months, saving approx $1.5M/year."
+  tags: ["Machine Learning", "IoT", "Strategy"]
+
+- title: "Customer Churn Reduction Strategy"
+  description: "End-to-end data strategy overhaul for a leading FinTech startup."
+  image: "project2.jpg"
+  challenge: "High churn rate in the SMB segment with no clear visibility into causation."
+  solution: "Deployed a centralized data warehouse and executed a segmentation analysis to identify at-risk cohorts."
+  impact: "Identified key churn drivers, leading to a targeted retention campaign that improved retention by 15%."
+  tags: ["Data Strategy", "Analytics", "FinTech"]
+
+- title: "GenAI Knowledge Base for Legal Firm"
+  description: "Advisory and architecture for a secure internal document search engine."
+  image: "project3.jpg"
+  challenge: "Associates spent 20+ hours/week searching through legacy case files."
+  solution: "Architected a RAG (Retrieval-Augmented Generation) system usage pattern with strict data privacy controls."
+  impact: "Mockup and pilot demonstrated a 60% reduction in research time."
+  tags: ["Generative AI", "LLM", "Efficiency"]
