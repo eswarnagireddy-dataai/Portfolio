@@ -1,11 +1,11 @@
 :root {
-    --bg-color: #f7f9fc;
-    --text-color: #1a202c;
-    --primary-color: #2b6cb0;
-    --secondary-color: #2d3748;
-    --accent-color: #319795;
+    --bg-color: #ffffff;
+    --text-color: #1b1b3a;
+    --primary-color: #005f73;
+    --secondary-color: #1b1b3a;
+    --accent-color: #005f73;
     --white: #ffffff;
-    --light-grey: #edf2f7;
+    --light-grey: #dad7cd;
     --font-heading: 'Outfit', sans-serif;
     --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -149,7 +149,7 @@ a {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../img/background_2.png');
     background-size: cover;
     background-position: center;
-    background-attach: fixed;
+    background-attachment: fixed;
 }
 
 .services-grid {
