@@ -418,6 +418,95 @@
             };
             new ApexCharts(document.getElementById("usage-chart"), options).render();
         }
+
+        // --- NEW CHARTS START ---
+
+        // Marketing ROI Chart (E-Commerce)
+        if (document.getElementById("marketing-roi-chart")) {
+            const options = {
+                ...chartDefaults,
+                chart: { ...chartDefaults.chart, type: 'bar', height: 350 },
+                series: [{
+                    name: 'ROAS',
+                    data: [3.2, 5.8]
+                }],
+                xaxis: {
+                    categories: ['Before (Fragmented)', 'After (Unified)'],
+                },
+                colors: ['#334155', '#00b4d8'],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 12,
+                        columnWidth: '50%',
+                        distributed: true
+                    }
+                },
+                title: {
+                    text: 'Return on Ad Spend (ROAS) Improvement',
+                    style: { color: '#f8fafc', fontSize: '18px' }
+                }
+            };
+            new ApexCharts(document.getElementById("marketing-roi-chart"), options).render();
+        }
+
+        // Usage vs Churn Chart (SaaS Retention)
+        if (document.getElementById("usage-vs-churn-chart")) {
+            const options = {
+                ...chartDefaults,
+                chart: { ...chartDefaults.chart, type: 'line', height: 350 },
+                series: [{
+                    name: 'Personalized Feature Adoption (%)',
+                    data: [10, 25, 45, 60, 75, 88]
+                }, {
+                    name: 'Churn Rate (%)',
+                    data: [12.0, 11.2, 9.5, 7.8, 6.2, 4.5]
+                }],
+                xaxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                },
+                colors: ['#00b4d8', '#e11d48'],
+                stroke: { width: [4, 4], curve: 'smooth' },
+                yaxis: [{
+                    title: { text: 'Adoption Rate (%)' }
+                }, {
+                    opposite: true,
+                    title: { text: 'Churn Rate (%)' }
+                }],
+                title: {
+                    text: 'Personalization Impact on Retention',
+                    style: { color: '#f8fafc', fontSize: '18px' }
+                }
+            };
+            new ApexCharts(document.getElementById("usage-vs-churn-chart"), options).render();
+        }
+
+        // Defect Isolation Time (Automotive)
+        if (document.getElementById("automotive-time-chart")) {
+            const options = {
+                ...chartDefaults,
+                chart: { ...chartDefaults.chart, type: 'bar', height: 350 },
+                series: [{
+                    name: 'Avg Hours per Vehicle',
+                    data: [6.5, 0.75]
+                }],
+                xaxis: {
+                    categories: ['Traditional Manual Trace', 'AI Root Cause Analysis'],
+                },
+                colors: ['#e11d48', '#94d2bd'],
+                plotOptions: {
+                    bar: {
+                        columnWidth: '50%',
+                        distributed: true,
+                        borderRadius: 12
+                    }
+                },
+                title: {
+                    text: 'Reduction in Defect Isolation Time',
+                    style: { color: '#f8fafc', fontSize: '18px' }
+                }
+            };
+            new ApexCharts(document.getElementById("automotive-time-chart"), options).render();
+        }
     });
 </script>
 

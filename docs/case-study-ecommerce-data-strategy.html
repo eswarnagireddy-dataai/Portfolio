@@ -1,6 +1,29 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eswar Nagireddy - Strategic Data & AI Consultant | C-Level Advisor</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-{% block content %}
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Eswar Nagireddy</a>
+            <nav class="site-nav">
+                <a href="#services">Services</a>
+                <a href="#projects">Work</a>
+                <a href="#contact" class="btn btn-primary">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
 <!-- Load ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
@@ -156,11 +179,41 @@
     <div class="container">
         <div class="case-study-header">
             <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
-            <h1 class="case-study-title">{{ title }}</h1>
+            <h1 class="case-study-title">Case Study: Enterprise Data Strategy for E-Commerce</h1>
         </div>
 
         <div class="case-study-content markdown-body">
-            {{ content | safe }}
+            <h1>Case Study: Enterprise Data Strategy for E-Commerce</h1>
+<h2>Part 1: The STAR Analysis</h2>
+<h3>Situation</h3>
+<p>A high-growth D2C e-commerce brand was scaling rapidly but flying blind. Marketing spend was spread across Meta, Google, and TikTok, while inventory was managed in a separate ERP. There was no unified view of "Customer Lifetime Value" (LTV) or "Customer Acquisition Cost" (CAC), leading to inefficient budget allocation and frequent stockouts.</p>
+<h3>Task</h3>
+<p>Implement a lean, high-impact data strategy to unify disparate data sources and provide real-time visibility into the metrics that matter for scaling a retail business.</p>
+<h3>Action</h3>
+<p>I designed a "Minimum Viable Data Stack" focused on speed and ROI:
+- <strong>Centralized Data Warehouse:</strong> Automated ingestion from Shopify, Meta Ads, and GA4 into a single warehouse.
+- <strong>Unified Attribution Model:</strong> Built a cross-channel attribution engine to identify the true drivers of conversion.
+- <strong>Inventory-Driven Marketing:</strong> Connected warehouse levels to ad platforms to automatically pause marketing for low-stock items, saving thousands in "dead ad spend."
+- <strong>Executive KPI Dashboard:</strong> Developed a single-pane-of-glass view for the leadership team focusing on Daily Contribution Margin and ROAS.</p>
+<h3>Result</h3>
+<ul>
+<li><strong>25% Improvement</strong> in Marketing ROI within the first 60 days.</li>
+<li><strong>18% Reduction</strong> in Customer Acquisition Cost (CAC) through better channel attribution.</li>
+<li><strong>Real-time Visibility</strong> into inventory-to-sales ratios, preventing over $200k in potential lost revenue from stockouts.</li>
+<li><strong>Lean Operations:</strong> Data pipelines require zero manual maintenance, freeing up 15 hours/week for the finance team.</li>
+</ul>
+<hr />
+<h2>Part 2: The Story: Simplicity Over Complexity</h2>
+<p>The client didn't need a massive enterprise data lake; they needed answers to three questions: <em>Which ads are actually working? Which customers are worth scaling? And do we have enough stock to fulfill the demand?</em></p>
+<p>We ignored the complex "big data" hype and focused on <strong>Data Connectivity</strong>. </p>
+<div class="chart-container">
+    <div id="marketing-roi-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Comparison of ROAS (Return on Ad Spend) before and after unified strategy implementation.</em></p>
+</div>
+
+<p>By connecting their warehouse data to their marketing data, we discovered that they were spending $4,000 a week advertising a specific sneaker that was nearly out of stock. Customers would click the ad, see "Out of Stock," and leave—costing the company both the ad fee and the potential sale.</p>
+<p>We implemented a simple "Automation Bridge": when stock fell below 10 units, the Meta Ad campaign was automatically suppressed. This one change alone paid for the entire data initiative within three weeks.</p>
+<p>The lesson? For e-commerce, <strong>Strategic Data</strong> beats <strong>Big Data</strong> every time.</p>
         </div>
 
         <div class="case-study-footer">
@@ -422,4 +475,20 @@
         }
     });
 </script>
-{% endblock %}
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Eswar Nagireddy. All rights reserved.</p>
+            <div class="social-links">
+                
+                <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

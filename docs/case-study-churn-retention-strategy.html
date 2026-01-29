@@ -1,6 +1,29 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eswar Nagireddy - Strategic Data & AI Consultant | C-Level Advisor</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-{% block content %}
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Eswar Nagireddy</a>
+            <nav class="site-nav">
+                <a href="#services">Services</a>
+                <a href="#projects">Work</a>
+                <a href="#contact" class="btn btn-primary">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
 <!-- Load ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
@@ -156,11 +179,44 @@
     <div class="container">
         <div class="case-study-header">
             <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
-            <h1 class="case-study-title">{{ title }}</h1>
+            <h1 class="case-study-title">Case Study: Customer Churn Reduction & Personalized Retention</h1>
         </div>
 
         <div class="case-study-content markdown-body">
-            {{ content | safe }}
+            <h1>Case Study: Customer Churn Reduction &amp; Personalized Retention</h1>
+<h2>Part 1: The STAR Analysis</h2>
+<h3>Situation</h3>
+<p>A global subscription-based SaaS platform was experiencing a "leaky bucket" problem. While new customer acquisition was strong, 12% of users were churning within the first 90 days. The platform's search functionality was basic, and product recommendations were generic, leading to a "disconnected" user experience where customers struggled to find value in the vast feature set.</p>
+<h3>Task</h3>
+<p>Design and execute an end-to-end churn reduction strategy by transforming the user experience into a personalized journey, utilizing advanced search and AI-driven recommendations.</p>
+<h3>Action</h3>
+<p>I led a comprehensive retention overhaul focused on three pillars:
+- <strong>Predictive Churn Modeling:</strong> Developed a machine learning model to identify "at-risk" behavior (e.g., declining login frequency, decreased feature usage) 14 days before a potential cancellation.
+- <strong>Intelligent Search &amp; Discovery:</strong> Replaced the legacy keyword search with a semantic search engine, allowing users to find tools based on "intent" rather than just tags.
+- <strong>Hyper-Personalized Recommendation Engine:</strong> Implemented a collaborative filtering system that suggested features and workflows based on a user's industry and successful patterns from similar "Power Users."
+- <strong>Triggered Retention Campaigns:</strong> Integrated the churn model with the CRM to trigger "Save Offers" and personalized tutorial content specifically addressing the user's friction points.</p>
+<h3>Result</h3>
+<ul>
+<li><strong>18% Reduction</strong> in overall churn within 6 months.</li>
+<li><strong>24% Increase</strong> in user engagement (session duration) through personalized discovery.</li>
+<li><strong>35% Conversion</strong> on retention-triggered "Help" invites vs the previous 5% on generic emails.</li>
+<li><strong>$1.8M Recovery</strong> in annual recurring revenue (ARR) directly attributed to the churn intervention.</li>
+</ul>
+<hr />
+<h2>Part 2: The Story: Making the Platform "Self-Aware"</h2>
+<p>Most companies treat churn as a marketing problem. We treated it as a <strong>Search and Relevance</strong> problem. </p>
+<blockquote>
+"If a user can't find what they need in the first 3 minutes, they aren't just confused—they are churning."
+</blockquote>
+
+<p>We realized that users weren't leaving because the platform lacked features; they were leaving because they were overwhelmed by the <em>wrong</em> features. By implementing an AI-driven Recommendation Engine, we turned the platform into a personal consultant. </p>
+<div class="chart-container">
+    <div id="usage-vs-churn-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Relationship between Personalized Feature Adoption and Churn Likelihood.</em></p>
+</div>
+
+<p>If a user was a Marketing Manager, the dashboard now highlighted campaign tools and hidden analytics features used by Top 1% Marketing Managers. If they were in Legal, it surfaced compliance logs. </p>
+<p>Through <strong>Personalization</strong>, we didn't just stop people from leaving; we showed them the path to becoming a Power User. The result wasn't just higher retention—it was a 15% increase in customer acquisition through word-of-mouth as users finally "unlocked" the platform's true potential.</p>
         </div>
 
         <div class="case-study-footer">
@@ -422,4 +478,20 @@
         }
     });
 </script>
-{% endblock %}
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Eswar Nagireddy. All rights reserved.</p>
+            <div class="social-links">
+                
+                <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

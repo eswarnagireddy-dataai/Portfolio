@@ -1,6 +1,29 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eswar Nagireddy - Strategic Data & AI Consultant | C-Level Advisor</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-{% block content %}
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Eswar Nagireddy</a>
+            <nav class="site-nav">
+                <a href="#services">Services</a>
+                <a href="#projects">Work</a>
+                <a href="#contact" class="btn btn-primary">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
 <!-- Load ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
@@ -156,11 +179,40 @@
     <div class="container">
         <div class="case-study-header">
             <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
-            <h1 class="case-study-title">{{ title }}</h1>
+            <h1 class="case-study-title">Case Study: AI Root Cause Analysis for Automotive Manufacturing</h1>
         </div>
 
         <div class="case-study-content markdown-body">
-            {{ content | safe }}
+            <h1>Case Study: AI Root Cause Analysis for Automotive Manufacturing</h1>
+<h2>Part 1: The STAR Analysis</h2>
+<h3>Situation</h3>
+<p>A major automotive truck manufacturer was facing bottlenecks on the assembly floor. When a truck failed its final quality check, senior technicians had to manually trace through thousands of sensor logs and assembly records to find the defective component. This process took an average of <strong>6.5 hours per vehicle</strong>, and with 50+ trucks in the queue, it was causing catastrophic delivery delays.</p>
+<h3>Task</h3>
+<p>Implement an intelligent Root Cause Analysis (RCA) system that enables shop floor employees to isolate defects instantly without waiting for senior engineering intervention.</p>
+<h3>Action</h3>
+<p>I architected a specialized AI diagnostic platform:
+- <strong>Real-time Log Ingestion:</strong> Streamed data from 400+ assembly point sensors into a centralized processing hub.
+- <strong>Pattern Matching AI:</strong> Trained an anomaly detection model on five years of historical "failure patterns" to recognize the digital signature of specific component defects (e.g., fuel pump misalignment, wiring harness friction).
+- <strong>Shop Floor Interface:</strong> Developed a ruggedized "Natural Language" interface where workers could input mobile symptoms (e.g., "Air pressure drop in Zone B") and receive a prioritized list of likely defect points with high-probability "Fix Suggestions."
+- <strong>Knowledge Capture Loop:</strong> Built a feedback mechanism where successful fixes were tagged back into the training set, allowing the AI to learn from the floor employees' manual corrections.</p>
+<h3>Result</h3>
+<ul>
+<li><strong>85% Reduction</strong> in defect isolation time—from 6.5 hours to 45 minutes.</li>
+<li><strong>20% Increase</strong> in daily assembly throughput.</li>
+<li><strong>Zero-Wait Diagnostic:</strong> Shop floor employees now handle 90% of failures independently, reserving senior engineers for complex design-level issues.</li>
+<li><strong>Significant Cost Reduction:</strong> Eliminated $1.2M in annual overtime costs associated with quality-check backlog.</li>
+</ul>
+<hr />
+<h2>Part 2: The Story: Empowering the Shop Floor</h2>
+<p>The breakthrough wasn't just the AI; it was the <strong>Accessibility</strong>. Traditionally, diagnostic data lived in complex databases that only data scientists could read. </p>
+<p>We brought that power to the person holding the wrench.</p>
+<div class="chart-container">
+    <div id="automotive-time-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Average hours spent on Defect Root Cause Analysis per truck.</em></p>
+</div>
+
+<p>Previously, if a "Pressure Alert" went off, a worker would have to check 15 possible valves. Now, they scan the vehicle VIN, and the system tells them: <em>"92% Probability: Valve AC-4 is stuck open due to a gasket seal fault observed in Chassis #4492."</em></p>
+<p>By turning <strong>Data into Directions</strong>, we didn't just speed up the factory; we empowered the employees. The factory floor transition from "Searchers" to "Fixers" was the key to unlocking millions in hidden efficiency.</p>
         </div>
 
         <div class="case-study-footer">
@@ -422,4 +474,20 @@
         }
     });
 </script>
-{% endblock %}
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Eswar Nagireddy. All rights reserved.</p>
+            <div class="social-links">
+                
+                <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
