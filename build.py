@@ -21,9 +21,18 @@ BASE_URL = "https://eswarnagireddy-dataai.github.io/Portfolio" # Update this to 
 
 def build():
     # Ensure output directory exists
-    if os.path.exists(OUTPUT_DIR):
-        shutil.rmtree(OUTPUT_DIR)
-    os.makedirs(OUTPUT_DIR)
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
+    else:
+        # Delete all contents except the google verification file
+        for item in os.listdir(OUTPUT_DIR):
+            item_path = os.path.join(OUTPUT_DIR, item)
+            if "google4c0ec9f6aae47acb" in item:
+                continue
+            if os.path.isdir(item_path):
+                shutil.rmtree(item_path)
+            else:
+                os.remove(item_path)
 
     # Load data
     profile = load_data("profile.yaml")
