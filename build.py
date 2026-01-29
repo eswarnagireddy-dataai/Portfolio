@@ -36,6 +36,12 @@ def build():
     index_output = index_template.render(profile=profile, projects=projects)
     with open(os.path.join(OUTPUT_DIR, "index.html"), "w") as f:
         f.write(index_output)
+
+    # 1b. Premium Welcome Page
+    premium_template = env.get_template("premium_index.html")
+    premium_output = premium_template.render(profile=profile, projects=projects)
+    with open(os.path.join(OUTPUT_DIR, "welcome.html"), "w") as f:
+        f.write(premium_output)
         
     # 2. Case Study Pages
     case_study_template = env.get_template("case_study.html")
