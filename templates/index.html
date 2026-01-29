@@ -468,7 +468,109 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Responsive */
+        /* Industries Section */
+        .industries {
+            padding: 8rem 5%;
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .industry-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            background: rgba(0, 180, 216, 0.05);
+            border-color: rgba(0, 180, 216, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .industry-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .industry-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .industry-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .industry-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* SVG Animations */
+        .wire-path {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: drawPath 3s ease forwards infinite;
+        }
+
+        .glow-dot {
+            fill: var(--accent);
+            filter: drop-shadow(0 0 5px var(--accent));
+            opacity: 0;
+            animation: glowPulse 3s ease infinite;
+        }
+
+        @keyframes drawPath {
+            0% {
+                stroke-dashoffset: 400;
+                opacity: 0.3;
+            }
+
+            50% {
+                stroke-dashoffset: 0;
+                opacity: 1;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
         @media (max-width: 1024px) {
 
             .expertise-grid,
@@ -559,6 +661,123 @@
                 <p>{{ service.description }}</p>
             </div>
             {% endfor %}
+        </div>
+    </section>
+
+    <section id="industries" class="industries">
+        <div class="section-header">
+            <h2>Industries of <span class="gradient-text">Impact</span></h2>
+            <p>Tailored AI strategies for high-stakes environments across global sectors.</p>
+        </div>
+        <div class="industries-grid">
+            <!-- Banking -->
+            <div class="industry-card">
+                <div class="industry-icon">
+                    <svg viewBox="0 0 100 100">
+                        <path class="wire-path" d="M50 10 L10 35 L90 35 Z" style="animation-delay: 0s" />
+                        <path class="wire-path" d="M15 35 L15 80" style="animation-delay: 0.2s" />
+                        <path class="wire-path" d="M85 35 L85 80" style="animation-delay: 0.2s" />
+                        <path class="wire-path" d="M10 80 L90 80" style="animation-delay: 0.4s" />
+                        <path class="wire-path" d="M30 35 L30 80" style="animation-delay: 0.3s" />
+                        <path class="wire-path" d="M50 35 L50 80" style="animation-delay: 0.35s" />
+                        <path class="wire-path" d="M70 35 L70 80" style="animation-delay: 0.4s" />
+                        <path class="wire-path" d="M50 45 L50 70 M43 50 Q50 45 57 50 Q50 55 43 60 Q50 65 57 60"
+                            style="animation-delay: 0.5s" />
+                        <circle class="glow-dot" cx="50" cy="10" r="3" style="animation-delay: 0s" />
+                        <circle class="glow-dot" cx="10" cy="35" r="2" style="animation-delay: 0.3s" />
+                        <circle class="glow-dot" cx="90" cy="35" r="2" style="animation-delay: 0.3s" />
+                    </svg>
+                </div>
+                <div class="industry-name">Banking</div>
+                <div class="industry-desc">Secure AI & Data Governance</div>
+            </div>
+
+            <!-- Supply Chain -->
+            <div class="industry-card">
+                <div class="industry-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="wire-path" cx="20" cy="25" r="10" style="animation-delay: 0s" />
+                        <circle class="wire-path" cx="80" cy="25" r="10" style="animation-delay: 0.1s" />
+                        <circle class="wire-path" cx="50" cy="75" r="10" style="animation-delay: 0.2s" />
+                        <path class="wire-path" d="M28 32 L42 68" style="animation-delay: 0.3s" />
+                        <path class="wire-path" d="M72 32 L58 68" style="animation-delay: 0.4s" />
+                        <path class="wire-path" d="M30 25 L70 25" style="animation-delay: 0.5s" />
+                        <rect class="wire-path" x="40" y="55" width="20" height="15" style="animation-delay: 0.6s" />
+                        <path class="wire-path" d="M40 55 L50 62 L60 55" style="animation-delay: 0.7s" />
+                        <circle class="glow-dot" cx="20" cy="25" r="3" style="animation-delay: 0.1s" />
+                        <circle class="glow-dot" cx="80" cy="25" r="3" style="animation-delay: 0.2s" />
+                        <circle class="glow-dot" cx="50" cy="75" r="3" style="animation-delay: 0.3s" />
+                    </svg>
+                </div>
+                <div class="industry-name">Supply Chain</div>
+                <div class="industry-desc">Intelligent Logistics & Forecasting</div>
+            </div>
+
+            <!-- E-Commerce -->
+            <div class="industry-card">
+                <div class="industry-icon">
+                    <svg viewBox="0 0 100 100">
+                        <path class="wire-path" d="M15 25 L25 25 L30 65 L70 65" style="animation-delay: 0s" />
+                        <path class="wire-path" d="M25 25 L35 55 L65 55" style="animation-delay: 0.1s" />
+                        <path class="wire-path" d="M10 20 Q10 15 15 15 L20 15" style="animation-delay: 0.2s" />
+                        <circle class="wire-path" cx="35" cy="75" r="6" style="animation-delay: 0.3s" />
+                        <circle class="wire-path" cx="65" cy="75" r="6" style="animation-delay: 0.4s" />
+                        <rect class="wire-path" x="55" y="15" width="30" height="22" rx="2"
+                            style="animation-delay: 0.5s" />
+                        <path class="wire-path" d="M70 37 L70 42" style="animation-delay: 0.6s" />
+                        <path class="wire-path" d="M60 42 L80 42" style="animation-delay: 0.7s" />
+                        <circle class="glow-dot" cx="15" cy="25" r="3" style="animation-delay: 0.1s" />
+                        <circle class="glow-dot" cx="70" cy="65" r="3" style="animation-delay: 0.3s" />
+                        <circle class="glow-dot" cx="70" cy="26" r="2" style="animation-delay: 0.5s" />
+                    </svg>
+                </div>
+                <div class="industry-name">E-Commerce</div>
+                <div class="industry-desc">ROI Optimization & Hyper-Personalization</div>
+            </div>
+
+            <!-- Automotive -->
+            <div class="industry-card">
+                <div class="industry-icon">
+                    <svg viewBox="0 0 100 100">
+                        <path class="wire-path"
+                            d="M15 55 Q15 40 30 40 L40 40 L45 30 L70 30 L75 40 L85 40 Q90 40 90 55 L90 65 L10 65 L10 55 Q10 50 15 55"
+                            style="animation-delay: 0s" />
+                        <path class="wire-path" d="M43 33 L68 33 L73 40 L40 40 Z" style="animation-delay: 0.2s" />
+                        <circle class="wire-path" cx="28" cy="68" r="10" style="animation-delay: 0.3s" />
+                        <circle class="wire-path" cx="72" cy="68" r="10" style="animation-delay: 0.4s" />
+                        <path class="wire-path" d="M28 68 L28 62 M28 68 L33 71 M28 68 L23 71"
+                            style="animation-delay: 0.5s" />
+                        <path class="wire-path" d="M72 68 L72 62 M72 68 L77 71 M72 68 L67 71"
+                            style="animation-delay: 0.6s" />
+                        <ellipse class="wire-path" cx="88" cy="52" rx="3" ry="5" style="animation-delay: 0.7s" />
+                        <circle class="glow-dot" cx="28" cy="68" r="3" style="animation-delay: 0.2s" />
+                        <circle class="glow-dot" cx="72" cy="68" r="3" style="animation-delay: 0.3s" />
+                        <circle class="glow-dot" cx="88" cy="52" r="2" style="animation-delay: 0.5s" />
+                    </svg>
+                </div>
+                <div class="industry-name">Automotive</div>
+                <div class="industry-desc">Operations Efficiency & Yield Prediction</div>
+            </div>
+
+            <!-- Healthcare -->
+            <div class="industry-card">
+                <div class="industry-icon">
+                    <svg viewBox="0 0 100 100">
+                        <path class="wire-path"
+                            d="M50 80 Q20 55 20 35 Q20 20 35 20 Q45 20 50 30 Q55 20 65 20 Q80 20 80 35 Q80 55 50 80 Z"
+                            style="animation-delay: 0s" />
+                        <path class="wire-path" d="M15 50 L30 50 L35 35 L45 65 L55 40 L65 50 L85 50"
+                            style="animation-delay: 0.3s" />
+                        <path class="wire-path" d="M50 55 L50 70 M42 62 L58 62" style="animation-delay: 0.5s" />
+                        <circle class="glow-dot" cx="35" cy="35" r="2" style="animation-delay: 0.4s" />
+                        <circle class="glow-dot" cx="45" cy="65" r="2" style="animation-delay: 0.5s" />
+                        <circle class="glow-dot" cx="55" cy="40" r="2" style="animation-delay: 0.6s" />
+                        <circle class="glow-dot" cx="50" cy="30" r="3" style="animation-delay: 0.2s" />
+                    </svg>
+                </div>
+                <div class="industry-name">Healthcare</div>
+                <div class="industry-desc">Compliance-First AI & Predictive Diagnostics</div>
+            </div>
         </div>
     </section>
 
