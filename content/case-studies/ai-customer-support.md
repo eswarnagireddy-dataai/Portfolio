@@ -31,8 +31,10 @@ It was 9:00 AM on a Monday, and the support queue was already at 400 tickets. Th
 
 The problem wasn't just the volume; it was the **blindness**. Thousands of minutes of customer calls were sitting in a database, unsearched and unlearned from. Agents were spending the first three minutes of every call just proving the caller was who they said they were.
 
-![Support Volume Trend](../static/img/case-studies/ai-support/roi_chart.png)
-*Figure 1: The downward trend in ticket volume following the AI implementation.*
+<div class="chart-container">
+    <div id="roi-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b;"><em>Figure 1: Support ticket volume reduction following AI implementation.</em></p>
+</div>
 
 ### The Turnaround
 We started by giving the agents a "Brain." By implementing a RAG (Retrieval-Augmented Generation) system, we turned the company's disorganized PDF manuals into a living knowledge base. Instead of searching through files, agents—and eventually customers—could simply ask the AI.
@@ -42,8 +44,10 @@ Next, we tackled the "Identity Tax." By the time an agent heard "Hello," the sys
 ### The Data Goldmine
 Finally, we turned the lights on in the dark room of voice recordings. Using an offline Speech-to-Text pipeline, we began transcribing every call. We didn't just get text; we got **emotion**. 
 
-![Customer Sentiment Analytics](../static/img/case-studies/ai-support/sentiment_chart.png)
-*Figure 2: Real-time sentiment distribution captured from offline call analysis.*
+<div class="chart-container">
+    <div id="sentiment-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b;"><em>Figure 2: Customer sentiment distribution captured from offline voice analytics.</em></p>
+</div>
 
 Suddenly, the C-suite could see *why* people were frustrated. We discovered a recurring shipping glitch in the Midwest that was responsible for 15% of all negative sentiment—a glitch that had been invisible in the manual logs for months.
 

@@ -24,6 +24,9 @@
 
     <main>
         
+<!-- Load ApexCharts -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 <article class="case-study-page section">
     <div class="container">
         <div class="case-study-header">
@@ -57,15 +60,21 @@
 <h2>Part 2: The Story: From Chaos to Insight</h2>
 <p>It was 9:00 AM on a Monday, and the support queue was already at 400 tickets. The team lead looked defeated. "We're not just answering questions," they told me. "We're searching for needles in haystacks every single time."</p>
 <p>The problem wasn't just the volume; it was the <strong>blindness</strong>. Thousands of minutes of customer calls were sitting in a database, unsearched and unlearned from. Agents were spending the first three minutes of every call just proving the caller was who they said they were.</p>
-<p><img alt="Support Volume Trend" src="../static/img/case-studies/ai-support/roi_chart.png" />
-<em>Figure 1: The downward trend in ticket volume following the AI implementation.</em></p>
+<div class="chart-container">
+    <div id="roi-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b;"><em>Figure 1: Support ticket volume reduction following AI implementation.</em></p>
+</div>
+
 <h3>The Turnaround</h3>
 <p>We started by giving the agents a "Brain." By implementing a RAG (Retrieval-Augmented Generation) system, we turned the company's disorganized PDF manuals into a living knowledge base. Instead of searching through files, agents—and eventually customers—could simply ask the AI.</p>
 <p>Next, we tackled the "Identity Tax." By the time an agent heard "Hello," the system had already verified the customer's account through an automated secure handshake. </p>
 <h3>The Data Goldmine</h3>
 <p>Finally, we turned the lights on in the dark room of voice recordings. Using an offline Speech-to-Text pipeline, we began transcribing every call. We didn't just get text; we got <strong>emotion</strong>. </p>
-<p><img alt="Customer Sentiment Analytics" src="../static/img/case-studies/ai-support/sentiment_chart.png" />
-<em>Figure 2: Real-time sentiment distribution captured from offline call analysis.</em></p>
+<div class="chart-container">
+    <div id="sentiment-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b;"><em>Figure 2: Customer sentiment distribution captured from offline voice analytics.</em></p>
+</div>
+
 <p>Suddenly, the C-suite could see <em>why</em> people were frustrated. We discovered a recurring shipping glitch in the Midwest that was responsible for 15% of all negative sentiment—a glitch that had been invisible in the manual logs for months.</p>
 <p>Today, the support floor is quiet. Not because tickets aren't being resolved, but because the AI is doing the heavy lifting, leaving the humans to handle only the most complex, emotionally nuanced challenges.</p>
         </div>
@@ -77,6 +86,83 @@
         </div>
     </div>
 </article>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ROI Chart (Line Chart)
+        if (document.getElementById("roi-chart")) {
+            const options = {
+                chart: {
+                    type: 'area',
+                    height: 350,
+                    toolbar: { show: false },
+                    fontFamily: 'Outfit, sans-serif'
+                },
+                series: [{
+                    name: 'Support Tickets',
+                    data: [450, 420, 380, 290, 210, 180]
+                }],
+                xaxis: {
+                    categories: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                },
+                colors: ['#005f73'],
+                stroke: { curve: 'smooth' },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.7,
+                        opacityTo: 0.1,
+                    }
+                },
+                title: {
+                    text: 'Support Ticket Volume Reduction',
+                    align: 'left',
+                    style: { fontSize: '16px', fontWeight: '600' }
+                }
+            };
+            new ApexCharts(document.getElementById("roi-chart"), options).render();
+        }
+
+        // Sentiment Chart (Donut Chart)
+        if (document.getElementById("sentiment-chart")) {
+            const options = {
+                chart: {
+                    type: 'donut',
+                    height: 350,
+                    fontFamily: 'Outfit, sans-serif'
+                },
+                series: [65, 25, 10],
+                labels: ['Positive', 'Neutral', 'Negative'],
+                colors: ['#005f73', '#94a3b8', '#e11d48'],
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    text: 'Customer Sentiment Distribution',
+                    align: 'left',
+                    style: { fontSize: '16px', fontWeight: '600' }
+                },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '70%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Sentiment',
+                                    formatter: () => 'Analysis'
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            new ApexCharts(document.getElementById("sentiment-chart"), options).render();
+        }
+    });
+</script>
 
 <style>
     .case-study-page {
@@ -115,6 +201,14 @@
         color: #334155;
         max-width: 900px;
         margin: 0 auto;
+    }
+
+    .chart-container {
+        margin: 3rem 0;
+        padding: 1.5rem;
+        background: #fdfdfd;
+        border: 1px solid #edf2f7;
+        border-radius: 8px;
     }
 
     /* Markdown Styling */
