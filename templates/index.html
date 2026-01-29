@@ -1,74 +1,763 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} | {{ profile.title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00b4d8;
+            --primary-dark: #0077b6;
+            --secondary: #005f73;
+            --accent: #94d2bd;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #00b4d8 0%, #005f73 50%, #94d2bd 100%);
+            --gradient-2: linear-gradient(90deg, #00b4d8, #005f73);
+        }
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container hero-content">
-        <h1>Transforming Data into <span class="highlight">Strategic Advantage</span></h1>
-        <p class="hero-subtitle">{{ profile.bio }}</p>
-        <div class="hero-cta">
-            <a href="#projects" class="btn btn-secondary">View Case Studies</a>
-            <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 95, 115, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(148, 210, 189, 0.1) 0%, transparent 40%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(2%, 2%) rotate(1deg);
+            }
+
+            66% {
+                transform: translate(-1%, 1%) rotate(-1deg);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 180, 216, 0.2);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 10px 40px rgba(0, 180, 216, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 180, 216, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(0, 180, 216, 0.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 5%;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(0, 180, 216, 0.05);
+            border-color: rgba(0, 180, 216, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 8rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expertise-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-2);
+            opacity: 0.5;
+        }
+
+        .expertise-card:hover {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(0, 180, 216, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .expertise-card p {
+            color: #cbd5e1;
+            /* Brighter slate than the previous gray */
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 8rem 5%;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(0, 180, 216, 0.1);
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .project-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--primary);
+        }
+
+        /* Analytics Section */
+        .analytics {
+            padding: 8rem 5%;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .analytics-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .analytics-card h3 {
+            margin-bottom: 2rem;
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            background: rgba(15, 23, 42, 0.8);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .footer {
+            padding: 4rem 5%;
+            text-align: center;
+            color: var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .expertise-grid,
+            .projects-grid,
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-animation"></div>
+
+    <nav id="navbar">
+        <a href="#" class="logo">EN.</a>
+        <ul class="nav-links">
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#projects">Engagements</a></li>
+            <li><a href="#analytics">Insights</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Available for Strategic Advisory</span>
+            <h1>Strategic <span class="gradient-text">Data & AI</span> Advisor for Executives</h1>
+            <p>{{ profile.bio }}</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                <a href="#projects" class="btn btn-secondary">View Impact</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Services Section -->
-<section id="services" class="section services">
-    <div class="container">
-        <h2 class="section-title">Expertise</h2>
-        <div class="services-grid">
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">AI Projects Rescued</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">60%</span>
+                <span class="stat-label">Avg. Efficiency Gain</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">C-Level Partners</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Strategic Support</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="expertise">
+        <div class="section-header">
+            <h2>Core Expertise</h2>
+            <p>Bridging the gap between technical complexity and business growth.</p>
+        </div>
+        <div class="expertise-grid">
             {% for service in profile.services %}
-            <div class="service-card">
-                <div class="service-icon icon-{{ service.icon }}"></div>
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    {% if service.icon == 'datastrategy' %}📊
+                    {% elif service.icon == 'executiveadvisory' %}👔
+                    {% elif service.icon == 'datagovernance' %}🛡️
+                    {% elif service.icon == 'roi' %}📈
+                    {% elif service.icon == 'maturityassessment' %}🎯
+                    {% else %}🚀{% endif %}
+                </div>
                 <h3>{{ service.title }}</h3>
                 <p>{{ service.description }}</p>
             </div>
             {% endfor %}
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Projects Section -->
-<section id="projects" class="section projects">
-    <div class="container">
-        <h2 class="section-title">Selected Engagement</h2>
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Selected Engagements</h2>
+            <p>High-impact interventions across diverse industries.</p>
+        </div>
         <div class="projects-grid">
             {% for project in projects %}
             <div class="project-card">
                 <div class="project-content">
                     <div class="project-tags">
                         {% for tag in project.tags %}
-                        <span class="tag">{{ tag }}</span>
+                        <span class="project-tag">{{ tag }}</span>
                         {% endfor %}
                     </div>
                     <h3>{{ project.title }}</h3>
-                    <p class="challenge"><strong>Challenge:</strong> {{ project.challenge }}</p>
-                    <p class="impact"><strong>Impact:</strong> {{ project.impact }}</p>
-                    <a href="{% if project.slug %}case-study-{{ project.slug }}.html{% else %}#{% endif %}"
-                        class="read-more">Read Case Study &rarr;</a>
+                    <p>{{ project.challenge }}</p>
+                    <div class="project-footer">
+                        <a href="{% if project.slug %}case-study-{{ project.slug }}.html{% else %}#{% endif %}"
+                            class="read-more">View Case Study &rarr;</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
-            <!-- Placeholder for future projects -->
-            <div class="project-card placeholder-card">
-                <div class="project-content">
-                    <h3>Future Project</h3>
-                    <p>Coming soon...</p>
-                </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="analytics">
+        <div class="section-header">
+            <h2>Strategic Insights</h2>
+            <p>Real-time performance metrics from recent AI implementations.</p>
+        </div>
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <h3>Overall Operational Efficiency (Last 12 Months)</h3>
+                <div id="main-chart"></div>
+            </div>
+            <div class="analytics-card">
+                <h3>Investment ROI</h3>
+                <div id="roi-donut"></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section contact">
-    <div class="container">
-        <h2 class="section-title">Let's Discuss Your Strategy</h2>
-        <p>Ready to unlock the potential of your data? Reach out for a confidential discussion.</p>
-        <a href="mailto:{{ profile.email }}" class="btn btn-large">{{ profile.email }}</a>
-    </div>
-</section>
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Let's build your <span class="gradient-text">AI Future</span></h2>
+            <p>Ready to unlock the potential of your data? Reach out for a confidential discussion.</p>
+            <a href="mailto:{{ profile.email }}" class="btn btn-primary">{{ profile.email }}</a>
+            <div style="margin-top: 2rem;">
+                <a href="{{ profile.linkedin }}" target="_blank" class="btn btn-secondary">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-{% endblock %}
+    <footer class="footer">
+        <p>&copy; 2024 {{ profile.name }}. Strategic Data & AI Consulting.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".hero-content > *", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        gsap.from(".expertise-card", {
+            scrollTrigger: ".expertise-grid",
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: "power3.out"
+        });
+
+        // Charts
+        const mainChartOptions = {
+            chart: {
+                type: 'area',
+                height: 350,
+                toolbar: { show: false },
+                fontFamily: 'Inter, sans-serif'
+            },
+            series: [{
+                name: 'Efficiency Gain',
+                data: [31, 40, 28, 51, 42, 109, 100]
+            }],
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                labels: { style: { colors: '#94a3b8' } }
+            },
+            yaxis: {
+                labels: { style: { colors: '#94a3b8' } }
+            },
+            colors: ['#00b4d8'],
+            stroke: { curve: 'smooth' },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.3,
+                }
+            },
+            grid: { borderColor: 'rgba(255,255,255,0.05)' }
+        };
+        new ApexCharts(document.querySelector("#main-chart"), mainChartOptions).render();
+
+        const roiDonutOptions = {
+            chart: {
+                type: 'donut',
+                height: 350,
+                fontFamily: 'Inter, sans-serif'
+            },
+            series: [44, 55, 13],
+            labels: ['Cost Savings', 'New Revenue', 'Risk Mitigation'],
+            colors: ['#00b4d8', '#005f73', '#94d2bd'],
+            legend: {
+                position: 'bottom',
+                labels: { colors: '#94a3b8' }
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'ROI',
+                                formatter: () => '3.5x'
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        new ApexCharts(document.querySelector("#roi-donut"), roiDonutOptions).render();
+    </script>
+</body>
+
+</html>
