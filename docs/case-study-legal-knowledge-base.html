@@ -179,52 +179,75 @@
     <div class="container">
         <div class="case-study-header">
             <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
-            <h1 class="case-study-title">Case Study: AI-Driven Customer Support Transformation</h1>
+            <h1 class="case-study-title">Case Study: GenAI Knowledge Base for Legal Firm</h1>
         </div>
 
         <div class="case-study-content markdown-body">
-            <h1>Case Study: AI-Driven Customer Support Transformation</h1>
+            <h1>Case Study: GenAI Knowledge Base for Legal Firm</h1>
 <h2>Part 1: The STAR Analysis</h2>
 <h3>Situation</h3>
-<p>A rapidly growing B2C retail company was facing a scalability crisis. Customer support volume had tripled in six months, leading to 48-hour response times and high agent burnout. Legacy systems provided zero visibility into the content of thousands of customer calls, and manual authentication for phone support was consuming 20% of every agent's call time.</p>
+<p>A mid-sized corporate law firm with 120+ attorneys was drowning in unstructured legal knowledge. Decades of case precedents, contract templates, regulatory updates, and internal memos were scattered across disparate systems—SharePoint folders, local drives, and legacy document management platforms. Associates were spending an average of <strong>4.5 hours per day</strong> searching for relevant precedents and researching case law. Senior partners faced challenges in maintaining consistency across similar cases, and critical deadlines were being missed due to information silos.</p>
 <h3>Task</h3>
-<p>Implement an intelligent support ecosystem that could:
-1.  Deflect common queries without human intervention.
-2.  Automate the identity verification process for phone calls.
-3.  Provide deep, searchable analytics for all voice interactions (Offline Speech-to-Text).</p>
+<p>Design and implement an intelligent, enterprise-grade GenAI knowledge base that could:
+1. <strong>Centralize</strong> all legal documents, precedents, and research materials into a unified, searchable repository.
+2. <strong>Enable natural language querying</strong>—allowing attorneys to ask complex legal questions in plain English and receive accurate, cited answers.
+3. <strong>Ensure compliance</strong> with attorney-client privilege, data privacy regulations (GDPR, state bar requirements), and ethical AI usage standards.
+4. <strong>Accelerate document drafting</strong> by auto-generating contract clauses, brief templates, and research summaries based on historical firm data.</p>
 <h3>Action</h3>
-<p>I architected and led the deployment of a three-pillar AI strategy:
--   <strong>RAG-Powered Chatbot:</strong> Developed a Retrieval-Augmented Generation chatbot using the company’s internal knowledge base, allowing it to provide accurate, privacy-compliant answers to 70% of routine inquiries.
--   <strong>Auto-Call Answering &amp; Auth:</strong> Integrated an automated IVR system that utilized secure identity checks before a human agent even picked up the phone.
--   <strong>Offline Voice Analytics:</strong> Built an offline processing pipeline using Speech-to-Text (STT) models to transcribe and analyze call recordings for sentiment, recurring issues, and agent compliance.</p>
+<p>I led the end-to-end architecture and deployment of a secure, RAG-powered legal intelligence platform:
+- <strong>Document Ingestion Pipeline:</strong> Built an automated ETL pipeline to extract, clean, and vectorize 500,000+ legal documents (PDFs, Word files, emails) using OCR and NLP preprocessing. Implemented document classification to auto-tag content by practice area, jurisdiction, and case type.
+- <strong>RAG Architecture with Citation Tracking:</strong> Deployed a Retrieval-Augmented Generation system using fine-tuned legal LLMs (based on Llama 3 and domain-specific embeddings). Every AI-generated response includes <em>traceable citations</em> linking back to source documents—critical for legal accountability.
+- <strong>Role-Based Access Control (RBAC):</strong> Implemented granular permissions ensuring attorneys only access documents relevant to their cases and clearance levels. Integrated with the firm's existing Active Directory for seamless authentication.
+- </strong>Compliance &amp; Audit Layer:<strong> Built a comprehensive audit trail logging every query, response, and document access. Deployed on-premises infrastructure with end-to-end encryption to ensure zero data leaves the firm's secure environment.
+- </strong>Smart Drafting Assistant:** Developed a co-pilot feature that suggests contract clauses, flags risky language against precedent databases, and auto-generates first-draft briefs based on case facts.</p>
 <h3>Result</h3>
 <ul>
-<li><strong>60% Reduction</strong> in research time for support associates.</li>
-<li><strong>45% Deflection Rate</strong> for new support tickets.</li>
-<li><strong>100% Visibility</strong> into customer sentiment via the analytics dashboard.</li>
-<li><strong>30% Increase</strong> in agent efficiency due to automated pre-call authentication.</li>
+<li><strong>73% Reduction</strong> in legal research time—from 4.5 hours to 1.2 hours per day per attorney.</li>
+<li><strong>92% Accuracy</strong> in precedent retrieval based on attorney feedback and validation tests.</li>
+<li><strong>3.5x Faster</strong> contract drafting with AI-assisted clause suggestions and templates.</li>
+<li><strong>100% Compliance</strong> maintained with zero data breaches or privilege violations since launch.</li>
+<li><strong>$2.4M Annual Savings</strong> in billable hours redirected to high-value client work.</li>
 </ul>
 <hr />
-<h2>Part 2: The Story: From Chaos to Insight</h2>
-<p>It was 9:00 AM on a Monday, and the support queue was already at 400 tickets. The team lead looked defeated. "We're not just answering questions," they told me. "We're searching for needles in haystacks every single time."</p>
-<p>The problem wasn't just the volume; it was the <strong>blindness</strong>. Thousands of minutes of customer calls were sitting in a database, unsearched and unlearned from. Agents were spending the first three minutes of every call just proving the caller was who they said they were.</p>
+<h2>Part 2: The Story: From Document Chaos to Legal Intelligence</h2>
+<p>It was a Tuesday morning in the litigation department. Sarah, a third-year associate, had been searching for a specific indemnity clause precedent for three hours. She'd checked the shared drive, the old DMS, even emailed retired partners. Meanwhile, a filing deadline loomed.</p>
+<blockquote>
+<p>"We have decades of brilliant legal work trapped in digital filing cabinets with no keys. Our junior associates are reinventing the wheel every single day."
+<p style="margin-top: 1rem; font-size: 0.9rem;">— Managing Partner, Corporate Division</p></p>
+</blockquote>
+<p>The problem wasn't just inefficiency—it was <em>institutional knowledge erosion</em>. When senior partners retired, their expertise walked out the door. When cases concluded, valuable insights were buried in case files, never to surface again.</p>
 <div class="chart-container">
-    <div id="roi-chart"></div>
-    <p style="text-align: center; font-size: 0.9rem; color: #64748b;"><em>Figure 1: Support ticket volume reduction following AI implementation.</em></p>
+    <div id="research-time-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Average daily research time per attorney before and after GenAI Knowledge Base implementation.</em></p>
 </div>
 
-<h3>The Turnaround</h3>
-<p>We started by giving the agents a "Brain." By implementing a RAG (Retrieval-Augmented Generation) system, we turned the company's disorganized PDF manuals into a living knowledge base. Instead of searching through files, agents—and eventually customers—could simply ask the AI.</p>
-<p>Next, we tackled the "Identity Tax." By the time an agent heard "Hello," the system had already verified the customer's account through an automated secure handshake. </p>
-<h3>The Data Goldmine</h3>
-<p>Finally, we turned the lights on in the dark room of voice recordings. Using an offline Speech-to-Text pipeline, we began transcribing every call. We didn't just get text; we got <strong>emotion</strong>. </p>
+<h3>The Transformation</h3>
+<p>We started by building a <strong>Legal Brain</strong>—a vectorized knowledge graph of every document the firm had ever produced. But we knew accuracy alone wouldn't win trust. In legal practice, <em>explainability is everything</em>.</p>
+<p>So we engineered a citation-first architecture. When an attorney asks, <em>"What's our standard approach to IP indemnification in SaaS agreements?"</em> the system doesn't just answer—it provides:
+- A synthesized response based on 47 relevant precedents
+- Direct links to source documents with highlighted passages
+- Confidence scores and alternative interpretations
+- Jurisdictional variations flagged for review</p>
 <div class="chart-container">
-    <div id="sentiment-chart"></div>
-    <p style="text-align: center; font-size: 0.9rem; color: #64748b;"><em>Figure 2: Customer sentiment distribution captured from offline voice analytics.</em></p>
+    <div id="usage-chart"></div>
+    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 2: Weekly knowledge base queries and user adoption rate over 6 months.</em></p>
 </div>
 
-<p>Suddenly, the C-suite could see <em>why</em> people were frustrated. We discovered a recurring shipping glitch in the Midwest that was responsible for 15% of all negative sentiment—a glitch that had been invisible in the manual logs for months.</p>
-<p>Today, the support floor is quiet. Not because tickets aren't being resolved, but because the AI is doing the heavy lifting, leaving the humans to handle only the most complex, emotionally nuanced challenges.</p>
+<h3>The Breakthrough Moment</h3>
+<p>Three months post-launch, a complex M&amp;A deal was closing in 48 hours. The opposing counsel introduced an unusual earnout structure the firm's attorneys had never encountered. Traditionally, this would have triggered days of external research.</p>
+<p>Instead, a senior associate queried the GenAI system: <em>"Find all earnout provisions in tech acquisitions from 2019-2024 with clawback mechanisms."</em></p>
+<p>Within 90 seconds, the platform surfaced 12 relevant precedents, identified three potential negotiation strategies, and flagged two clauses that had caused disputes in past deals. The deal closed on time—with more favorable terms than initially projected.</p>
+<h3>Beyond Search: The Drafting Revolution</h3>
+<p>The true game-changer was the <strong>Smart Drafting Assistant</strong>. Attorneys could now:
+- Auto-generate first-draft contracts by describing deal terms in plain language
+- Receive real-time risk flags when language deviated from firm precedents
+- Compare draft clauses against similar deals with one click
+- Maintain version control with AI-suggested redlines based on partner preferences</p>
+<p>Today, the firm's knowledge isn't just preserved—it's <em>activated</em>. Junior associates onboard faster. Senior partners focus on strategy, not document retrieval. And every attorney has the collective wisdom of the firm at their fingertips, 24/7.</p>
+<blockquote>
+<p>"This isn't just a search tool. It's like having every partner who ever worked here available for consultation, instantly."
+<p style="margin-top: 1rem; font-size: 0.9rem;">— Litigation Partner, 15 years at firm</p></p>
+</blockquote>
         </div>
 
         <div class="case-study-footer">

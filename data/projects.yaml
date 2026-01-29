@@ -15,6 +15,7 @@
   tags: ["Data Strategy", "Analytics", "FinTech"]
 
 - title: "GenAI Knowledge Base for Legal Firm"
+  slug: "legal-knowledge-base"
   description: "Advisory and architecture for a secure internal document search engine."
   image: "project3.jpg"
   challenge: "Associates spent 20+ hours/week searching through legacy case files."

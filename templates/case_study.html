@@ -252,6 +252,85 @@
             };
             new ApexCharts(document.getElementById("sentiment-chart"), options).render();
         }
+
+        // Research Time Comparison Chart (Legal KB)
+        if (document.getElementById("research-time-chart")) {
+            const options = {
+                ...chartDefaults,
+                chart: { ...chartDefaults.chart, type: 'bar', height: 350 },
+                series: [{
+                    name: 'Hours per Day',
+                    data: [4.5, 1.2]
+                }],
+                xaxis: {
+                    categories: ['Before GenAI KB', 'After GenAI KB'],
+                },
+                colors: ['#e11d48', '#00b4d8'],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 12,
+                        columnWidth: '50%',
+                        distributed: true
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) {
+                        return val + ' hrs';
+                    },
+                    style: {
+                        colors: ['#f8fafc']
+                    }
+                },
+                title: {
+                    text: 'Daily Legal Research Time Reduction',
+                    align: 'left',
+                    style: { color: '#f8fafc', fontSize: '18px', fontWeight: '600' }
+                }
+            };
+            new ApexCharts(document.getElementById("research-time-chart"), options).render();
+        }
+
+        // Usage & Adoption Chart (Legal KB)
+        if (document.getElementById("usage-chart")) {
+            const options = {
+                ...chartDefaults,
+                chart: { ...chartDefaults.chart, type: 'line', height: 350 },
+                series: [{
+                    name: 'Weekly Queries',
+                    data: [120, 280, 450, 720, 950, 1200]
+                }, {
+                    name: 'User Adoption (%)',
+                    data: [15, 35, 55, 72, 85, 94]
+                }],
+                xaxis: {
+                    categories: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                },
+                colors: ['#00b4d8', '#94d2bd'],
+                stroke: { curve: 'smooth', width: 3 },
+                markers: { size: 5 },
+                yaxis: [{
+                    title: {
+                        text: 'Weekly Queries',
+                        style: { color: '#00b4d8' }
+                    }
+                }, {
+                    opposite: true,
+                    title: {
+                        text: 'Adoption Rate (%)',
+                        style: { color: '#94d2bd' }
+                    },
+                    min: 0,
+                    max: 100
+                }],
+                title: {
+                    text: 'Knowledge Base Adoption & Usage Growth',
+                    align: 'left',
+                    style: { color: '#f8fafc', fontSize: '18px', fontWeight: '600' }
+                }
+            };
+            new ApexCharts(document.getElementById("usage-chart"), options).render();
+        }
     });
 </script>
 {% endblock %}
