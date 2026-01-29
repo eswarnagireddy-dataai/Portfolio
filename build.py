@@ -17,6 +17,8 @@ def load_data(filename):
     with open(filepath, "r") as f:
         return yaml.safe_load(f)
 
+BASE_URL = "https://eswarnagireddy-dataai.github.io/Portfolio" # Update this to your custom domain if applicable
+
 def build():
     # Ensure output directory exists
     if os.path.exists(OUTPUT_DIR):
@@ -29,6 +31,9 @@ def build():
     
     # Setup Jinja2
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    
+    # Track pages for sitemap
+    pages = ["index.html"]
     
     # Render Templates
     # 1. Index Page
@@ -58,6 +63,8 @@ def build():
                 html_content = markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
                 
                 output_filename = f"case-study-{slug}.html"
+                pages.append(output_filename)
+                
                 rendered_page = case_study_template.render(
                     profile=profile,
                     title=title,
@@ -67,12 +74,28 @@ def build():
                 with open(os.path.join(OUTPUT_DIR, output_filename), "w") as f:
                     f.write(rendered_page)
                     
+    # Generate Sitemap
+    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for page in pages:
+        url = f"{BASE_URL}/{page}" if page != "index.html" else BASE_URL
+        sitemap_content += f'  <url>\n    <loc>{url}</loc>\n    <priority>{"1.0" if page == "index.html" else "0.8"}</priority>\n  </url>\n'
+    sitemap_content += '</urlset>'
+    
+    with open(os.path.join(OUTPUT_DIR, "sitemap.xml"), "w") as f:
+        f.write(sitemap_content)
+        
+    # Generate Robots.txt
+    robots_content = f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml"
+    with open(os.path.join(OUTPUT_DIR, "robots.txt"), "w") as f:
+        f.write(robots_content)
+
     # Copy Static Files
     output_static = os.path.join(OUTPUT_DIR, "static")
     if os.path.exists(STATIC_DIR):
         shutil.copytree(STATIC_DIR, output_static)
 
-    print(f"Site built successfully in '{OUTPUT_DIR}' directory.")
+    print(f"Site built successfully in '{OUTPUT_DIR}' directory with sitemap and robots.txt.")
 
 if __name__ == "__main__":
     build()
