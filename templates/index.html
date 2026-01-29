@@ -55,29 +55,10 @@
             font-weight: 700;
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background:
-                radial-gradient(circle at 20% 80%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 95, 115, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(148, 210, 189, 0.1) 0%, transparent 40%);
-            animation: bgFloat 20s ease-in-out infinite;
+        /* Static Background */
+        body {
+            background-color: var(--darker);
+            color: var(--light);
         }
 
         @keyframes bgFloat {
@@ -324,46 +305,23 @@
         }
 
         .expertise-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
+            background: #0f172a;
+            /* Solid dark background */
             padding: 2.5rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-2);
-            opacity: 0.5;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .expertise-card:hover {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: rgba(0, 180, 216, 0.5);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         .expertise-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            color: white;
-            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .expertise-card h3 {
@@ -538,8 +496,6 @@
 
 <body>
 
-    <div class="bg-animation"></div>
-
     <nav id="navbar">
         <a href="#" class="logo">EN.</a>
         <ul class="nav-links">
@@ -688,11 +644,11 @@
 
         gsap.from(".expertise-card", {
             scrollTrigger: ".expertise-grid",
-            y: 100,
+            y: 30,
             opacity: 0,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power3.out"
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out"
         });
 
         // Charts
