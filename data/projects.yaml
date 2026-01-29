@@ -23,6 +23,7 @@
   tags: ["Generative AI", "LLM", "Efficiency"]
 
 - title: "AI-Driven Customer Support"
+  slug: "ai-customer-support"
   description: "Supporting a B2C Retail company with AI-driven customer support."
   image: "project4.jpg"
   challenge: "Associates spent 20+ hours/week on customer support, answering common questions."

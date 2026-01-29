@@ -46,7 +46,8 @@
                     <h3>{{ project.title }}</h3>
                     <p class="challenge"><strong>Challenge:</strong> {{ project.challenge }}</p>
                     <p class="impact"><strong>Impact:</strong> {{ project.impact }}</p>
-                    <a href="#" class="read-more">Read Case Study &rarr;</a>
+                    <a href="{% if project.slug %}case-study-{{ project.slug }}.html{% else %}#{% endif %}"
+                        class="read-more">Read Case Study &rarr;</a>
                 </div>
             </div>
             {% endfor %}
