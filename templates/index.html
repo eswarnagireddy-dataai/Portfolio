@@ -18,6 +18,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         :root {
             --primary: #00b4d8;
@@ -404,7 +405,48 @@
             margin-bottom: 2rem;
         }
 
+        .project-tech {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item i {
+            font-size: 1.8rem;
+        }
+
+        .tech-item span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translateY(5px);
+        }
+
+        .tech-item:hover {
+            color: var(--primary);
+        }
+
+        .tech-item:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .project-footer {
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -881,7 +923,34 @@
                     </div>
                     <h3>{{ project.title }}</h3>
                     <p>{{ project.challenge }}</p>
+                    <div class="project-tech">
+                        {% for tech in project.technologies %}
+                        <div class="tech-item">
+                            {% if tech == 'Azure' %}
+                            <i class="devicon-azure-plain"></i>
+                            {% elif tech == 'AWS' %}
+                            <i class="devicon-amazonwebservices-original"></i>
+                            {% elif tech == 'Python' %}
+                            <i class="devicon-python-plain"></i>
+                            {% elif tech == 'Docker' %}
+                            <i class="devicon-docker-plain"></i>
+                            {% elif tech == 'R' %}
+                            <i class="devicon-r-plain"></i>
+                            {% elif tech == 'SQL' %}
+                            <i class="devicon-azuresqldatabase-plain"></i>
+                            {% elif tech == 'BigQuery' %}
+                            <i class="devicon-googlecloud-plain"></i>
+                            {% elif tech == 'dbt' %}
+                            <i class="devicon-postgresql-plain"></i>
+                            {% else %}
+                            <i class="devicon-{{ tech|lower }}-plain"></i>
+                            {% endif %}
+                            <span>{{ tech }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
                     <div class="project-footer">
+
                         <a href="{% if project.slug %}case-study-{{ project.slug }}.html{% else %}#{% endif %}"
                             class="read-more">View Case Study &rarr;</a>
                     </div>

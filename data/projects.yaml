@@ -5,6 +5,7 @@
   solution: "Implemented a lean data stack (BigQuery + dbt) with a centralized attribution engine."
   impact: "25% increase in marketing efficiency and 18% reduction in CAC within 60 days."
   tags: ["Data Strategy", "E-Commerce", "ROI Optimization"]
+  technologies: ["BigQuery", "dbt", "Python"]
 
 - title: "Customer Churn Reduction"
   slug: "churn-retention-strategy"
@@ -13,6 +14,7 @@
   solution: "Deployed predictive churn models and a hyper-personalized recommendation engine."
   impact: "18% reduction in churn and $1.8M recovered in annual recurring revenue (ARR)."
   tags: ["Machine Learning", "Personalization", "Retention"]
+  technologies: ["Azure", "SQL", "Python", "Docker"]
 
 - title: "Legal GenAI Knowledge Base"
   slug: "legal-knowledge-base"
@@ -21,6 +23,7 @@
   solution: "Architected a secure, cite-traceable internal search engine using fine-tuned LLMs."
   impact: "73% reduction in research time and $2.4M in annual billable efficiency gains."
   tags: ["Generative AI", "RAG", "LegalTech"]
+  technologies: ["Python", "SQL", "Azure"]
 
 - title: "Automotive AI Root Cause Analysis"
   slug: "automotive-root-cause"
@@ -29,6 +32,7 @@
   solution: "AI pattern-matching tool with a natural language interface for shop floor employees."
   impact: "85% reduction in isolation time (to 45 mins) and 20% increase in throughput."
   tags: ["Predictive Analytics", "Manufacturing", "Expert Systems"]
+  technologies: ["SQL", "R", "AWS"]
 
 - title: "AI-Driven Customer Support"
   slug: "ai-customer-support"
@@ -37,3 +41,5 @@
   solution: "RAG-powered chatbot and offline voice analytics for automated authentication."
   impact: "45% deflection rate and 30% increase in agent efficiency through automation."
   tags: ["Generative AI", "Customer Support", "Cost Reduction"]
+  technologies: ["Docker", "Python", "Azure"]
+

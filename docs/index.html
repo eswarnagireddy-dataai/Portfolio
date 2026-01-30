@@ -18,6 +18,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         :root {
             --primary: #00b4d8;
@@ -404,7 +405,48 @@
             margin-bottom: 2rem;
         }
 
+        .project-tech {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item i {
+            font-size: 1.8rem;
+        }
+
+        .tech-item span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translateY(5px);
+        }
+
+        .tech-item:hover {
+            color: var(--primary);
+        }
+
+        .tech-item:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .project-footer {
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -925,7 +967,32 @@
                     </div>
                     <h3>Enterprise Data Strategy for E-Commerce</h3>
                     <p>Marketing spend fragmented across channels with no unified ROI visibility.</p>
+                    <div class="project-tech">
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-googlecloud-plain"></i>
+                            
+                            <span>BigQuery</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-postgresql-plain"></i>
+                            
+                            <span>dbt</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-python-plain"></i>
+                            
+                            <span>Python</span>
+                        </div>
+                        
+                    </div>
                     <div class="project-footer">
+
                         <a href="case-study-ecommerce-data-strategy.html"
                             class="read-more">View Case Study &rarr;</a>
                     </div>
@@ -945,7 +1012,39 @@
                     </div>
                     <h3>Customer Churn Reduction</h3>
                     <p>12% churn rate due to poor product discovery and generic user experiences.</p>
+                    <div class="project-tech">
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-azure-plain"></i>
+                            
+                            <span>Azure</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-azuresqldatabase-plain"></i>
+                            
+                            <span>SQL</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-python-plain"></i>
+                            
+                            <span>Python</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-docker-plain"></i>
+                            
+                            <span>Docker</span>
+                        </div>
+                        
+                    </div>
                     <div class="project-footer">
+
                         <a href="case-study-churn-retention-strategy.html"
                             class="read-more">View Case Study &rarr;</a>
                     </div>
@@ -965,7 +1064,32 @@
                     </div>
                     <h3>Legal GenAI Knowledge Base</h3>
                     <p>Associates spent 4.5 hours/day searching for precedents in unstructured archives.</p>
+                    <div class="project-tech">
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-python-plain"></i>
+                            
+                            <span>Python</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-azuresqldatabase-plain"></i>
+                            
+                            <span>SQL</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-azure-plain"></i>
+                            
+                            <span>Azure</span>
+                        </div>
+                        
+                    </div>
                     <div class="project-footer">
+
                         <a href="case-study-legal-knowledge-base.html"
                             class="read-more">View Case Study &rarr;</a>
                     </div>
@@ -985,7 +1109,32 @@
                     </div>
                     <h3>Automotive AI Root Cause Analysis</h3>
                     <p>Manual defect isolation taking 6.5 hours per vehicle, causing massive bottlenecks.</p>
+                    <div class="project-tech">
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-azuresqldatabase-plain"></i>
+                            
+                            <span>SQL</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-r-plain"></i>
+                            
+                            <span>R</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-amazonwebservices-original"></i>
+                            
+                            <span>AWS</span>
+                        </div>
+                        
+                    </div>
                     <div class="project-footer">
+
                         <a href="case-study-automotive-root-cause.html"
                             class="read-more">View Case Study &rarr;</a>
                     </div>
@@ -1005,7 +1154,32 @@
                     </div>
                     <h3>AI-Driven Customer Support</h3>
                     <p>Tripled support volume with 48-hour response times and agent burnout.</p>
+                    <div class="project-tech">
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-docker-plain"></i>
+                            
+                            <span>Docker</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-python-plain"></i>
+                            
+                            <span>Python</span>
+                        </div>
+                        
+                        <div class="tech-item">
+                            
+                            <i class="devicon-azure-plain"></i>
+                            
+                            <span>Azure</span>
+                        </div>
+                        
+                    </div>
                     <div class="project-footer">
+
                         <a href="case-study-ai-customer-support.html"
                             class="read-more">View Case Study &rarr;</a>
                     </div>
