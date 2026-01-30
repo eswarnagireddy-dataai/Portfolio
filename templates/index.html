@@ -942,7 +942,14 @@
                             <i class="devicon-googlecloud-plain"></i>
                             {% elif tech == 'dbt' %}
                             <i class="devicon-postgresql-plain"></i>
+                            {% elif tech == 'Databricks' %}
+                            <i class="devicon-databricks-plain"></i>
+                            {% elif tech == 'AI' %}
+                            <i class="devicon-opencv-plain"></i>
+                            {% elif tech == 'ML' %}
+                            <i class="devicon-tensorflow-original"></i>
                             {% else %}
+
                             <i class="devicon-{{ tech|lower }}-plain"></i>
                             {% endif %}
                             <span>{{ tech }}</span>

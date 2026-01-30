@@ -2,10 +2,11 @@
   slug: "ecommerce-data-strategy"
   description: "Unified data strategy for rapidly scaling D2C brands."
   challenge: "Marketing spend fragmented across channels with no unified ROI visibility."
-  solution: "Implemented a lean data stack (BigQuery + dbt) with a centralized attribution engine."
+  solution: "Implemented a lakehouse architecture using Azure Databricks and dbt for centralized attribution and ML-driven insights."
   impact: "25% increase in marketing efficiency and 18% reduction in CAC within 60 days."
   tags: ["Data Strategy", "E-Commerce", "ROI Optimization"]
-  technologies: ["BigQuery", "dbt", "Python"]
+  technologies: ["Azure", "dbt", "Databricks", "Python", "AI", "ML"]
+
 
 - title: "Customer Churn Reduction"
   slug: "churn-retention-strategy"
