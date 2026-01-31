@@ -18,16 +18,14 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="logo">Eswar Nagireddy</a>
-            <nav class="site-nav">
-                <a href="#services">Services</a>
-                <a href="#projects">Work</a>
-                <a href="#contact" class="btn btn-primary">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav id="navbar">
+        <a href="index.html" class="logo">EN.</a>
+        <ul class="nav-links">
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="index.html#projects">Engagements</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         
@@ -53,11 +51,49 @@
         font-family: 'Inter', sans-serif;
     }
 
-    /* Static Background */
-    body {
-        background: var(--darker);
-        color: var(--light);
-        font-family: 'Inter', sans-serif;
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: var(--light) !important;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary) !important;
+    }
+
+    .logo {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
     }
 
     .case-study-page {
@@ -102,10 +138,11 @@
         line-height: 1.8;
         font-size: 1.15rem;
         color: #e2e8f0;
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
+
 
     .chart-container {
         margin: 4rem 0;
@@ -170,7 +207,7 @@
 
     @media (max-width: 768px) {
         .case-study-content {
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 20px;
         }
 
@@ -178,7 +215,92 @@
             font-size: 2.2rem;
         }
     }
+
+    /* Layout Utilities */
+    .star-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+
+    .star-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.25rem;
+        border-radius: 16px;
+        height: 100%;
+        transition: border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .star-box:hover {
+        border-color: var(--primary);
+    }
+
+    .star-box h3 {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 1rem !important;
+        color: var(--primary) !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .star-box p,
+    .star-box ul {
+        margin-bottom: 0 !important;
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+        color: #cbd5e1;
+    }
+
+
+    .story-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+        margin-top: 2rem;
+    }
+
+    .story-text {
+        padding-right: 1rem;
+    }
+
+    .story-plot {
+        background: rgba(2, 6, 23, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 1100px) {
+        .star-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .star-grid,
+        .story-split {
+            grid-template-columns: 1fr;
+        }
+
+        .case-study-content {
+            padding: 2rem 1rem;
+            max-width: 100%;
+        }
+
+        .star-box {
+            padding: 1.25rem;
+        }
+    }
 </style>
+
 
 
 
@@ -192,34 +314,58 @@
         <div class="case-study-content markdown-body">
             <h1>Case Study: AI Root Cause Analysis for Automotive Manufacturing</h1>
 <h2>Part 1: The STAR Analysis</h2>
+<div class="star-grid">
+<div class="star-box">
 <h3>Situation</h3>
-<p>A major automotive truck manufacturer was facing bottlenecks on the assembly floor. When a truck failed its final quality check, senior technicians had to manually trace through thousands of sensor logs and assembly records to find the defective component. This process took an average of <strong>6.5 hours per vehicle</strong>, and with 50+ trucks in the queue, it was causing catastrophic delivery delays.</p>
-<h3>Task</h3>
-<p>Implement an intelligent Root Cause Analysis (RCA) system that enables shop floor employees to isolate defects instantly without waiting for senior engineering intervention.</p>
-<h3>Action</h3>
-<p>I architected a specialized AI diagnostic platform:
-- <strong>Real-time Log Ingestion:</strong> Streamed data from 400+ assembly point sensors into a centralized processing hub.
-- <strong>Pattern Matching AI:</strong> Trained an anomaly detection model on five years of historical "failure patterns" to recognize the digital signature of specific component defects (e.g., fuel pump misalignment, wiring harness friction).
-- <strong>Shop Floor Interface:</strong> Developed a ruggedized "Natural Language" interface where workers could input mobile symptoms (e.g., "Air pressure drop in Zone B") and receive a prioritized list of likely defect points with high-probability "Fix Suggestions."
-- <strong>Knowledge Capture Loop:</strong> Built a feedback mechanism where successful fixes were tagged back into the training set, allowing the AI to learn from the floor employees' manual corrections.</p>
-<h3>Result</h3>
-<ul>
-<li><strong>85% Reduction</strong> in defect isolation time—from 6.5 hours to 45 minutes.</li>
-<li><strong>20% Increase</strong> in daily assembly throughput.</li>
-<li><strong>Zero-Wait Diagnostic:</strong> Shop floor employees now handle 90% of failures independently, reserving senior engineers for complex design-level issues.</li>
-<li><strong>Significant Cost Reduction:</strong> Eliminated $1.2M in annual overtime costs associated with quality-check backlog.</li>
-</ul>
-<hr />
-<h2>Part 2: The Story: Empowering the Shop Floor</h2>
-<p>The breakthrough wasn't just the AI; it was the <strong>Accessibility</strong>. Traditionally, diagnostic data lived in complex databases that only data scientists could read. </p>
-<p>We brought that power to the person holding the wrench.</p>
-<div class="chart-container">
-    <div id="automotive-time-chart"></div>
-    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Average hours spent on Defect Root Cause Analysis per truck.</em></p>
+Catastrophic delivery delays due to quality-check bottlenecks. Technicians spent <strong>6.5 hours per vehicle</strong> manually tracing sensor logs to find defects.
 </div>
 
-<p>Previously, if a "Pressure Alert" went off, a worker would have to check 15 possible valves. Now, they scan the vehicle VIN, and the system tells them: <em>"92% Probability: Valve AC-4 is stuck open due to a gasket seal fault observed in Chassis #4492."</em></p>
-<p>By turning <strong>Data into Directions</strong>, we didn't just speed up the factory; we empowered the employees. The factory floor transition from "Searchers" to "Fixers" was the key to unlocking millions in hidden efficiency.</p>
+<div class="star-box">
+<h3>Task</h3>
+Implement an intelligent Root Cause Analysis (RCA) system enabling shop floor employees to isolate defects instantly without senior engineering intervention.
+</div>
+
+<div class="star-box">
+<h3>Action</h3>
+I architected a specialized AI platform:
+<ul>
+<li><strong>Pattern Matching:</strong> Anomaly detection trained on 5 years of failure signatures.</li>
+<li><strong>Floor Interface:</strong> Ruggedized NL interface for immediate fix suggestions.</li>
+<li><strong>Feedback Loop:</strong> Constant learning from manual corrections.</li>
+</ul>
+</div>
+
+<div class="star-box">
+<h3>Result</h3>
+<ul>
+<li><strong>85% Reduction</strong> in isolation time (6.5 hrs to 45 mins).</li>
+<li><strong>20% Increase</strong> in daily assembly throughput.</li>
+<li><strong>$1.2M Savings</strong> in annual overtime costs.</li>
+</ul>
+</div>
+</div>
+
+<hr />
+<h2>Part 2: The Story: Empowering the Shop Floor</h2>
+<div class="story-split">
+<div class="story-text">
+
+The breakthrough wasn't just the AI; it was the **Accessibility**. Traditionally, diagnostic data lived in complex databases that only data scientists could read. 
+
+We brought that power to the person holding the wrench.
+
+Previously, if a "Pressure Alert" went off, a worker would have to check 15 possible valves. Now, they scan the vehicle VIN, and the system tells them: *"92% Probability: Valve AC-4 is stuck open due to a gasket seal fault."*
+
+By turning **Data into Directions**, we didn't just speed up the factory; we empowered the employees. The factory floor transition from "Searchers" to "Fixers" was the key to unlocking millions in hidden efficiency.
+</div>
+
+<div class="story-plot">
+
+<div id="automotive-time-chart"></div>
+<p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Defect Isolation Time (Hours)</em></p>
+
+</div>
+</div>
         </div>
 
         <div class="case-study-footer">
@@ -486,7 +632,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 Eswar Nagireddy. All rights reserved.</p>
+            <p>&copy; 2026 Eswar Nagireddy. All rights reserved.</p>
             <div class="social-links">
                 
                 <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>

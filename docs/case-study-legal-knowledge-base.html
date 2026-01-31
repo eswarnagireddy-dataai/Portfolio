@@ -18,16 +18,14 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="logo">Eswar Nagireddy</a>
-            <nav class="site-nav">
-                <a href="#services">Services</a>
-                <a href="#projects">Work</a>
-                <a href="#contact" class="btn btn-primary">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav id="navbar">
+        <a href="index.html" class="logo">EN.</a>
+        <ul class="nav-links">
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="index.html#projects">Engagements</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         
@@ -53,11 +51,49 @@
         font-family: 'Inter', sans-serif;
     }
 
-    /* Static Background */
-    body {
-        background: var(--darker);
-        color: var(--light);
-        font-family: 'Inter', sans-serif;
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: var(--light) !important;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary) !important;
+    }
+
+    .logo {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
     }
 
     .case-study-page {
@@ -102,10 +138,11 @@
         line-height: 1.8;
         font-size: 1.15rem;
         color: #e2e8f0;
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
+
 
     .chart-container {
         margin: 4rem 0;
@@ -170,7 +207,7 @@
 
     @media (max-width: 768px) {
         .case-study-content {
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 20px;
         }
 
@@ -178,7 +215,92 @@
             font-size: 2.2rem;
         }
     }
+
+    /* Layout Utilities */
+    .star-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+
+    .star-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.25rem;
+        border-radius: 16px;
+        height: 100%;
+        transition: border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .star-box:hover {
+        border-color: var(--primary);
+    }
+
+    .star-box h3 {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 1rem !important;
+        color: var(--primary) !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .star-box p,
+    .star-box ul {
+        margin-bottom: 0 !important;
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+        color: #cbd5e1;
+    }
+
+
+    .story-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+        margin-top: 2rem;
+    }
+
+    .story-text {
+        padding-right: 1rem;
+    }
+
+    .story-plot {
+        background: rgba(2, 6, 23, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 1100px) {
+        .star-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .star-grid,
+        .story-split {
+            grid-template-columns: 1fr;
+        }
+
+        .case-study-content {
+            padding: 2rem 1rem;
+            max-width: 100%;
+        }
+
+        .star-box {
+            padding: 1.25rem;
+        }
+    }
 </style>
+
 
 
 
@@ -192,69 +314,64 @@
         <div class="case-study-content markdown-body">
             <h1>Case Study: GenAI Knowledge Base for Legal Firm</h1>
 <h2>Part 1: The STAR Analysis</h2>
+<div class="star-grid">
+<div class="star-box">
 <h3>Situation</h3>
-<p>A mid-sized corporate law firm with 120+ attorneys was drowning in unstructured legal knowledge. Decades of case precedents, contract templates, regulatory updates, and internal memos were scattered across disparate systems—SharePoint folders, local drives, and legacy document management platforms. Associates were spending an average of <strong>4.5 hours per day</strong> searching for relevant precedents and researching case law. Senior partners faced challenges in maintaining consistency across similar cases, and critical deadlines were being missed due to information silos.</p>
+120+ attorneys drowning in unstructured data. Associates spent <strong>4.5 hours per day</strong> researching precedents. Institutional knowledge was lost as partners retired.
+</div>
+
+<div class="star-box">
 <h3>Task</h3>
-<p>Design and implement an intelligent, enterprise-grade GenAI knowledge base that could:
-1. <strong>Centralize</strong> all legal documents, precedents, and research materials into a unified, searchable repository.
-2. <strong>Enable natural language querying</strong>—allowing attorneys to ask complex legal questions in plain English and receive accurate, cited answers.
-3. <strong>Ensure compliance</strong> with attorney-client privilege, data privacy regulations (GDPR, state bar requirements), and ethical AI usage standards.
-4. <strong>Accelerate document drafting</strong> by auto-generating contract clauses, brief templates, and research summaries based on historical firm data.</p>
+Implement an enterprise-grade GenAI knowledge base to centralize materials, enable natural language querying, and accelerate document drafting while ensuring 100% compliance.
+</div>
+
+<div class="star-box">
 <h3>Action</h3>
-<p>I led the end-to-end architecture and deployment of a secure, RAG-powered legal intelligence platform:
-- <strong>Document Ingestion Pipeline:</strong> Built an automated ETL pipeline to extract, clean, and vectorize 500,000+ legal documents (PDFs, Word files, emails) using OCR and NLP preprocessing. Implemented document classification to auto-tag content by practice area, jurisdiction, and case type.
-- <strong>RAG Architecture with Citation Tracking:</strong> Deployed a Retrieval-Augmented Generation system using fine-tuned legal LLMs (based on Llama 3 and domain-specific embeddings). Every AI-generated response includes <em>traceable citations</em> linking back to source documents—critical for legal accountability.
-- <strong>Role-Based Access Control (RBAC):</strong> Implemented granular permissions ensuring attorneys only access documents relevant to their cases and clearance levels. Integrated with the firm's existing Active Directory for seamless authentication.
-- </strong>Compliance &amp; Audit Layer:<strong> Built a comprehensive audit trail logging every query, response, and document access. Deployed on-premises infrastructure with end-to-end encryption to ensure zero data leaves the firm's secure environment.
-- </strong>Smart Drafting Assistant:** Developed a co-pilot feature that suggests contract clauses, flags risky language against precedent databases, and auto-generates first-draft briefs based on case facts.</p>
+I led the secure RAG-powered deployment:
+<ul>
+<li><strong>Ingestion Pipeline:</strong> OCR & NLP processing for 500k+ documents.</li>
+<li><strong>RAG Architecture:</strong> Citation-first system using fine-tuned legal LLMs.</li>
+<li><strong>Smart Drafting:</strong> Co-pilot for auto-generating clauses and briefs.</li>
+</ul>
+</div>
+
+<div class="star-box">
 <h3>Result</h3>
 <ul>
-<li><strong>73% Reduction</strong> in legal research time—from 4.5 hours to 1.2 hours per day per attorney.</li>
-<li><strong>92% Accuracy</strong> in precedent retrieval based on attorney feedback and validation tests.</li>
-<li><strong>3.5x Faster</strong> contract drafting with AI-assisted clause suggestions and templates.</li>
-<li><strong>100% Compliance</strong> maintained with zero data breaches or privilege violations since launch.</li>
-<li><strong>$2.4M Annual Savings</strong> in billable hours redirected to high-value client work.</li>
+<li><strong>73% Reduction</strong> in research time (4.5 to 1.2 hrs).</li>
+<li><strong>3.5x Faster</strong> contract drafting workflow.</li>
+<li><strong>$2.4M Savings</strong> in redirected billable hours.</li>
+<li><strong>100% Compliance</strong> with zero data breaches.</li>
 </ul>
+</div>
+</div>
+
 <hr />
 <h2>Part 2: The Story: From Document Chaos to Legal Intelligence</h2>
-<p>It was a Tuesday morning in the litigation department. Sarah, a third-year associate, had been searching for a specific indemnity clause precedent for three hours. She'd checked the shared drive, the old DMS, even emailed retired partners. Meanwhile, a filing deadline loomed.</p>
-<blockquote>
-<p>"We have decades of brilliant legal work trapped in digital filing cabinets with no keys. Our junior associates are reinventing the wheel every single day."
-<p style="margin-top: 1rem; font-size: 0.9rem;">— Managing Partner, Corporate Division</p></p>
-</blockquote>
-<p>The problem wasn't just inefficiency—it was <em>institutional knowledge erosion</em>. When senior partners retired, their expertise walked out the door. When cases concluded, valuable insights were buried in case files, never to surface again.</p>
-<div class="chart-container">
-    <div id="research-time-chart"></div>
-    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Average daily research time per attorney before and after GenAI Knowledge Base implementation.</em></p>
+<div class="story-split">
+<div class="story-text">
+
+Sarah, a third-year associate, had been searching for a specific indemnity clause for three hours. meanwhile, a filing deadline loomed. This wasn't just inefficiency—it was *institutional knowledge erosion*.
+
+We started by building a **Legal Brain**—a vectorized knowledge graph of every document the firm had ever produced. But we knew accuracy alone wouldn't win trust. In legal practice, *explainability is everything*.
+
+So we engineered a citation-first architecture. When an attorney asks a question, the system provides a synthesized response linked directly to source documents with highlighted passages.
+
+Today, the firm's knowledge isn't just preserved; it's *activated*. 
+
+> "This isn't just a search tool. It's like having every partner who ever worked here available for consultation, instantly."
 </div>
 
-<h3>The Transformation</h3>
-<p>We started by building a <strong>Legal Brain</strong>—a vectorized knowledge graph of every document the firm had ever produced. But we knew accuracy alone wouldn't win trust. In legal practice, <em>explainability is everything</em>.</p>
-<p>So we engineered a citation-first architecture. When an attorney asks, <em>"What's our standard approach to IP indemnification in SaaS agreements?"</em> the system doesn't just answer—it provides:
-- A synthesized response based on 47 relevant precedents
-- Direct links to source documents with highlighted passages
-- Confidence scores and alternative interpretations
-- Jurisdictional variations flagged for review</p>
-<div class="chart-container">
-    <div id="usage-chart"></div>
-    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 2: Weekly knowledge base queries and user adoption rate over 6 months.</em></p>
-</div>
+<div class="story-plot">
 
-<h3>The Breakthrough Moment</h3>
-<p>Three months post-launch, a complex M&amp;A deal was closing in 48 hours. The opposing counsel introduced an unusual earnout structure the firm's attorneys had never encountered. Traditionally, this would have triggered days of external research.</p>
-<p>Instead, a senior associate queried the GenAI system: <em>"Find all earnout provisions in tech acquisitions from 2019-2024 with clawback mechanisms."</em></p>
-<p>Within 90 seconds, the platform surfaced 12 relevant precedents, identified three potential negotiation strategies, and flagged two clauses that had caused disputes in past deals. The deal closed on time—with more favorable terms than initially projected.</p>
-<h3>Beyond Search: The Drafting Revolution</h3>
-<p>The true game-changer was the <strong>Smart Drafting Assistant</strong>. Attorneys could now:
-- Auto-generate first-draft contracts by describing deal terms in plain language
-- Receive real-time risk flags when language deviated from firm precedents
-- Compare draft clauses against similar deals with one click
-- Maintain version control with AI-suggested redlines based on partner preferences</p>
-<p>Today, the firm's knowledge isn't just preserved—it's <em>activated</em>. Junior associates onboard faster. Senior partners focus on strategy, not document retrieval. And every attorney has the collective wisdom of the firm at their fingertips, 24/7.</p>
-<blockquote>
-<p>"This isn't just a search tool. It's like having every partner who ever worked here available for consultation, instantly."
-<p style="margin-top: 1rem; font-size: 0.9rem;">— Litigation Partner, 15 years at firm</p></p>
-</blockquote>
+<div id="research-time-chart"></div>
+<p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Research Time Reduction</em></p>
+
+<div id="usage-chart" style="margin-top: 2rem;"></div>
+<p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 1rem;"><em>Figure 2: User Adoption & Growth</em></p>
+
+</div>
+</div>
         </div>
 
         <div class="case-study-footer">
@@ -521,7 +638,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 Eswar Nagireddy. All rights reserved.</p>
+            <p>&copy; 2026 Eswar Nagireddy. All rights reserved.</p>
             <div class="social-links">
                 
                 <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>

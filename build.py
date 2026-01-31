@@ -69,7 +69,7 @@ def build():
                         title = line.replace('# ', '').strip()
                         break
                 
-                html_content = markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
+                html_content = markdown.markdown(md_content, extensions=['fenced_code', 'tables', 'md_in_html'])
                 
                 output_filename = f"case-study-{slug}.html"
                 pages.append(output_filename)

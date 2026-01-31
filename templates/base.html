@@ -18,16 +18,14 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="logo">{{ profile.name }}</a>
-            <nav class="site-nav">
-                <a href="#services">Services</a>
-                <a href="#projects">Work</a>
-                <a href="#contact" class="btn btn-primary">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav id="navbar">
+        <a href="index.html" class="logo">EN.</a>
+        <ul class="nav-links">
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="index.html#projects">Engagements</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         {% block content %}{% endblock %}
@@ -35,7 +33,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 {{ profile.name }}. All rights reserved.</p>
+            <p>&copy; 2026 {{ profile.name }}. All rights reserved.</p>
             <div class="social-links">
                 {% if profile.linkedin %}
                 <a href="{{ profile.linkedin }}" target="_blank">LinkedIn</a>

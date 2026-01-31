@@ -18,16 +18,14 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="logo">Eswar Nagireddy</a>
-            <nav class="site-nav">
-                <a href="#services">Services</a>
-                <a href="#projects">Work</a>
-                <a href="#contact" class="btn btn-primary">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav id="navbar">
+        <a href="index.html" class="logo">EN.</a>
+        <ul class="nav-links">
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="index.html#projects">Engagements</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         
@@ -53,11 +51,49 @@
         font-family: 'Inter', sans-serif;
     }
 
-    /* Static Background */
-    body {
-        background: var(--darker);
-        color: var(--light);
-        font-family: 'Inter', sans-serif;
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: var(--light) !important;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary) !important;
+    }
+
+    .logo {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
     }
 
     .case-study-page {
@@ -102,10 +138,11 @@
         line-height: 1.8;
         font-size: 1.15rem;
         color: #e2e8f0;
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
+
 
     .chart-container {
         margin: 4rem 0;
@@ -170,7 +207,7 @@
 
     @media (max-width: 768px) {
         .case-study-content {
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 20px;
         }
 
@@ -178,7 +215,92 @@
             font-size: 2.2rem;
         }
     }
+
+    /* Layout Utilities */
+    .star-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+
+    .star-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.25rem;
+        border-radius: 16px;
+        height: 100%;
+        transition: border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .star-box:hover {
+        border-color: var(--primary);
+    }
+
+    .star-box h3 {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 1rem !important;
+        color: var(--primary) !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .star-box p,
+    .star-box ul {
+        margin-bottom: 0 !important;
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+        color: #cbd5e1;
+    }
+
+
+    .story-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+        margin-top: 2rem;
+    }
+
+    .story-text {
+        padding-right: 1rem;
+    }
+
+    .story-plot {
+        background: rgba(2, 6, 23, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 1100px) {
+        .star-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .star-grid,
+        .story-split {
+            grid-template-columns: 1fr;
+        }
+
+        .case-study-content {
+            padding: 2rem 1rem;
+            max-width: 100%;
+        }
+
+        .star-box {
+            padding: 1.25rem;
+        }
+    }
 </style>
+
 
 
 
@@ -192,35 +314,59 @@
         <div class="case-study-content markdown-body">
             <h1>Case Study: Enterprise Data Strategy for E-Commerce</h1>
 <h2>Part 1: The STAR Analysis</h2>
+<div class="star-grid">
+<div class="star-box">
 <h3>Situation</h3>
-<p>A high-growth D2C e-commerce brand was scaling rapidly but flying blind. Marketing spend was spread across Meta, Google, and TikTok, while inventory was managed in a separate ERP. There was no unified view of "Customer Lifetime Value" (LTV) or "Customer Acquisition Cost" (CAC), leading to inefficient budget allocation and frequent stockouts.</p>
-<h3>Task</h3>
-<p>Implement a lean, high-impact data strategy to unify disparate data sources and provide real-time visibility into the metrics that matter for scaling a retail business.</p>
-<h3>Action</h3>
-<p>I designed a "Minimum Viable Data Stack" focused on speed and ROI:
-- <strong>Centralized Data Warehouse:</strong> Automated ingestion from Shopify, Meta Ads, and GA4 into a single warehouse.
-- <strong>Unified Attribution Model:</strong> Built a cross-channel attribution engine to identify the true drivers of conversion.
-- <strong>Inventory-Driven Marketing:</strong> Connected warehouse levels to ad platforms to automatically pause marketing for low-stock items, saving thousands in "dead ad spend."
-- <strong>Executive KPI Dashboard:</strong> Developed a single-pane-of-glass view for the leadership team focusing on Daily Contribution Margin and ROAS.</p>
-<h3>Result</h3>
-<ul>
-<li><strong>25% Improvement</strong> in Marketing ROI within the first 60 days.</li>
-<li><strong>18% Reduction</strong> in Customer Acquisition Cost (CAC) through better channel attribution.</li>
-<li><strong>Real-time Visibility</strong> into inventory-to-sales ratios, preventing over $200k in potential lost revenue from stockouts.</li>
-<li><strong>Lean Operations:</strong> Data pipelines require zero manual maintenance, freeing up 15 hours/week for the finance team.</li>
-</ul>
-<hr />
-<h2>Part 2: The Story: Simplicity Over Complexity</h2>
-<p>The client didn't need a massive enterprise data lake; they needed answers to three questions: <em>Which ads are actually working? Which customers are worth scaling? And do we have enough stock to fulfill the demand?</em></p>
-<p>We ignored the complex "big data" hype and focused on <strong>Data Connectivity</strong>. </p>
-<div class="chart-container">
-    <div id="marketing-roi-chart"></div>
-    <p style="text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Comparison of ROAS (Return on Ad Spend) before and after unified strategy implementation.</em></p>
+A high-growth D2C brand was scaling rapidly but flying blind. Marketing spend was spread across Meta, Google, and TikTok, while inventory was managed in a separate ERP. No unified view of LTV or CAC existed.
 </div>
 
-<p>By connecting their warehouse data to their marketing data, we discovered that they were spending $4,000 a week advertising a specific sneaker that was nearly out of stock. Customers would click the ad, see "Out of Stock," and leave—costing the company both the ad fee and the potential sale.</p>
-<p>We implemented a simple "Automation Bridge": when stock fell below 10 units, the Meta Ad campaign was automatically suppressed. This one change alone paid for the entire data initiative within three weeks.</p>
-<p>The lesson? For e-commerce, <strong>Strategic Data</strong> beats <strong>Big Data</strong> every time.</p>
+<div class="star-box">
+<h3>Task</h3>
+Implement a lean, high-impact data strategy to unify disparate data sources and provide real-time visibility into the metrics that matter for scaling a retail business.
+</div>
+
+<div class="star-box">
+<h3>Action</h3>
+I designed a "Minimum Viable Data Stack":
+<ul>
+<li><strong>Centralized Warehouse:</strong> Automated ingestion from Shopify, Meta, and GA4.</li>
+<li><strong>Unified Attribution:</strong> Cross-channel engine to identify true conversion drivers.</li>
+<li><strong>Inventory Bridge:</strong> Automatically pause ads for low-stock items.</li>
+</ul>
+</div>
+
+<div class="star-box">
+<h3>Result</h3>
+<ul>
+<li><strong>25% Improvement</strong> in Marketing ROI.</li>
+<li><strong>18% Reduction</strong> in CAC.</li>
+<li><strong>$200k Savings</strong> by preventing stockout ad spend.</li>
+<li><strong>15 hrs/week</strong> saved for the finance team.</li>
+</ul>
+</div>
+</div>
+
+<hr />
+<h2>Part 2: The Story: Simplicity Over Complexity</h2>
+<div class="story-split">
+<div class="story-text">
+
+The client didn't need a massive enterprise data lake; they needed answers to three questions: *Which ads are actually working? Which customers are worth scaling? And do we have enough stock to fulfill the demand?*
+
+We ignored the complex "big data" hype and focused on **Data Connectivity**. 
+
+By connecting their warehouse data to their marketing data, we discovered that they were spending $4,000 a week advertising a specific sneaker that was nearly out of stock. 
+
+We implemented a simple "Automation Bridge": when stock fell below 10 units, the Meta Ad campaign was automatically suppressed. This one change alone paid for the entire data initiative within three weeks.
+</div>
+
+<div class="story-plot">
+
+<div id="marketing-roi-chart"></div>
+<p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: ROAS Improvement (Unified Strategy)</em></p>
+
+</div>
+</div>
         </div>
 
         <div class="case-study-footer">
@@ -487,7 +633,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 Eswar Nagireddy. All rights reserved.</p>
+            <p>&copy; 2026 Eswar Nagireddy. All rights reserved.</p>
             <div class="social-links">
                 
                 <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>
