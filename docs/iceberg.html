@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eswar Nagireddy | Strategic and Technical Data & AI Consultant | C-Level Advisor</title>
+    <meta name="description" content="Strategic Data & AI Advisory and Case Studies by Eswar Nagireddy.">
+    <meta name="author" content="Eswar Nagireddy">
+    <meta name="google-site-verification" content="Q9DKn1ayPN4AEYb-OkP6a-Th-mC4LbI-jkpr30BaJy4" />
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">EN.</a>
+        <ul class="nav-links">
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="index.html#projects">Engagements</a></li>
+            <li><a href="iceberg.html">Iceberg</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        
+<style>
+    /* Inherit Dark Theme Variables */
+    :root {
+        --primary: #00b4d8;
+        --secondary: #005f73;
+        --accent: #94d2bd;
+        --darker: #020617;
+        --light: #f8fafc;
+        --gray: #94a3b8;
+        --gradient-1: linear-gradient(135deg, #00b4d8 0%, #005f73 50%, #94d2bd 100%);
+        --gradient-2: linear-gradient(90deg, #00b4d8, #005f73);
+        --font-heading: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+        background: var(--darker);
+        color: var(--light);
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Navbar styling to match other pages */
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: var(--light) !important;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary) !important;
+        text-decoration: none;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-2);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .logo {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+    }
+
+    /* Page specific styles */
+    .iceberg-page {
+        padding-top: 8rem;
+        min-height: 100vh;
+        position: relative;
+    }
+
+
+    /* Iceberg CSS adaptation */
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    h1.page-title {
+        text-align: center;
+        color: #fff;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        font-family: var(--font-heading);
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: var(--gray);
+        font-size: 1.1rem;
+        margin-bottom: 50px;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .iceberg-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Water line indicator */
+    .water-line {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: 10;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+    }
+
+    .water-line-label {
+        position: absolute;
+        top: 35%;
+        right: -80px;
+        transform: translateY(-50%);
+        color: var(--gray);
+        font-size: 0.9rem;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Iceberg SVG */
+    .iceberg-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        /* Add a gentle drop shadow to the whole SVG to separate from dark bg */
+        filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.1));
+    }
+
+    /* Above water section */
+    .above-water {
+        fill: linear-gradient(135deg, #E8F4F8 0%, #B8D4E3 100%);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    /* Below water section */
+    .below-water {
+        fill: url(#waterGradient);
+        opacity: 0.9;
+    }
+
+    /* Use cases above water */
+    .usecase {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1a5276;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        cursor: default;
+        white-space: nowrap;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .usecase:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+        background: #fff;
+    }
+
+    .usecase.recsys {
+        top: 8%;
+        left: 15%;
+    }
+
+    .usecase.search {
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .usecase.search:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    .usecase.rca {
+        top: 8%;
+        right: 15%;
+    }
+
+    .usecase.aibots {
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .usecase.aibots:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    .usecase.nlp {
+        top: 15%;
+        left: 8%;
+    }
+
+    .usecase.vision {
+        top: 15%;
+        right: 8%;
+    }
+
+    /* Foundation items below water */
+    .foundation {
+        position: absolute;
+        background: rgba(15, 23, 42, 0.8);
+        /* Darker background to match theme */
+        padding: 10px 18px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--primary);
+        /* Cyan text */
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: default;
+        border: 1px solid rgba(0, 180, 216, 0.3);
+        /* Cyan border */
+        font-family: 'Inter', sans-serif;
+    }
+
+    .foundation:hover {
+        transform: scale(1.05);
+        background: rgba(15, 23, 42, 1);
+        box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+        /* Glow effect */
+        border-color: var(--primary);
+    }
+
+    .foundation.engineering {
+        top: 45%;
+        left: 20%;
+    }
+
+    .foundation.cloud {
+        top: 42%;
+        right: 20%;
+    }
+
+    .foundation.security {
+        top: 55%;
+        left: 10%;
+    }
+
+    .foundation.costs {
+        top: 52%;
+        right: 10%;
+    }
+
+    .foundation.roi {
+        top: 68%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .foundation.roi:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    .foundation.math {
+        top: 80%;
+        left: 25%;
+    }
+
+    .foundation.algorithms {
+        top: 78%;
+        right: 25%;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @keyframes float-reverse {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(5px);
+        }
+    }
+
+    .usecase.recsys {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .usecase.search {
+        animation: float-reverse 3.5s ease-in-out infinite;
+    }
+
+    .usecase.rca {
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .usecase.aibots {
+        animation: float-reverse 3s ease-in-out infinite;
+    }
+
+    .usecase.nlp {
+        animation: float 3.5s ease-in-out infinite;
+    }
+
+    .usecase.vision {
+        animation: float-reverse 4s ease-in-out infinite;
+    }
+
+    .foundation.engineering {
+        animation: float-reverse 5s ease-in-out infinite;
+    }
+
+    .foundation.cloud {
+        animation: float 5.5s ease-in-out infinite;
+    }
+
+    .foundation.security {
+        animation: float-reverse 6s ease-in-out infinite;
+    }
+
+    .foundation.costs {
+        animation: float 5s ease-in-out infinite;
+    }
+
+    .foundation.roi {
+        animation: float-reverse 5.5s ease-in-out infinite;
+    }
+
+    .foundation.math {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .foundation.algorithms {
+        animation: float-reverse 5s ease-in-out infinite;
+    }
+
+    /* Legend */
+    .legend {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 60px;
+        flex-wrap: wrap;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--light);
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .legend-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
+
+    .legend-dot.above {
+        background: #fff;
+    }
+
+    .legend-dot.below {
+        background: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        h1.page-title {
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+        }
+
+        .usecase,
+        .foundation {
+            font-size: 0.8rem;
+            padding: 8px 14px;
+        }
+
+        .water-line-label {
+            right: -60px;
+            font-size: 0.75rem;
+        }
+
+        .legend {
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .usecase.nlp {
+            left: 2%;
+        }
+
+        .usecase.vision {
+            right: 2%;
+        }
+
+        .foundation.security {
+            left: 2%;
+        }
+
+        .foundation.costs {
+            right: 2%;
+        }
+    }
+</style>
+
+<article class="iceberg-page">
+    <div class="wrapper">
+        <h1 class="page-title">AI/ML Iceberg</h1>
+        <p class="subtitle">Visible Innovation vs. Hidden Foundation</p>
+
+        <div class="iceberg-container">
+            <!-- Water line -->
+            <div class="water-line"></div>
+            <span class="water-line-label">Surface Level</span>
+
+            <!-- Iceberg SVG -->
+            <svg class="iceberg-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <!-- Gradient for above water (kept same as reference) -->
+                    <linearGradient id="iceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#E8F4F8;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#B8D4E3;stop-opacity:1" />
+                    </linearGradient>
+
+                    <!-- Gradient for below water (Adjusted to blend better with dark theme) -->
+                    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#005f73;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#020617;stop-opacity:0.9" />
+                    </linearGradient>
+
+                    <!-- Underwater glow effect -->
+                    <filter id="underwaterGlow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- Below water portion (larger, submerged) -->
+                <path class="below-water" d="M 280 210 
+                         Q 320 280, 300 350 
+                         Q 280 420, 320 500 
+                         Q 400 580, 480 500 
+                         Q 520 420, 500 350 
+                         Q 480 280, 520 210 
+                         Z" fill="url(#waterGradient)" stroke="rgba(0,180,216,0.3)" stroke-width="1" />
+
+                <!-- Above water portion (visible tip) -->
+                <path class="above-water" d="M 280 210 
+                         L 400 80 
+                         L 520 210 
+                         Q 400 230, 280 210 
+                         Z" fill="url(#iceGradient)" />
+
+                <!-- Iceberg highlight/shine -->
+                <path d="M 320 180 L 400 100 L 420 130 L 350 200 Z" fill="rgba(255,255,255,0.4)" />
+            </svg>
+
+            <!-- Above Water: Use Cases -->
+            <div class="usecase recsys">RecSys</div>
+            <div class="usecase search">Search</div>
+            <div class="usecase rca">Root Cause Analysis</div>
+            <div class="usecase aibots">AI Bots</div>
+            <div class="usecase nlp">NLP</div>
+            <div class="usecase vision">Computer Vision</div>
+
+            <!-- Below Water: Foundation -->
+            <div class="foundation engineering">Engineering</div>
+            <div class="foundation cloud">Cloud</div>
+            <div class="foundation security">Security</div>
+            <div class="foundation costs">Costs</div>
+            <div class="foundation roi">ROI Optimization</div>
+            <div class="foundation math">Math</div>
+            <div class="foundation algorithms">Algorithms</div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot above"></div>
+                <span>User Perception</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot below"></div>
+                <span>Strategic Reality</span>
+            </div>
+        </div>
+    </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Eswar Nagireddy. All rights reserved.</p>
+            <div class="social-links">
+                
+                <a href="https://linkedin.com/in/eswarnagireddy" target="_blank">LinkedIn</a>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

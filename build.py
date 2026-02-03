@@ -82,6 +82,13 @@ def build():
                 
                 with open(os.path.join(OUTPUT_DIR, output_filename), "w") as f:
                     f.write(rendered_page)
+
+    # 3. Iceberg Page
+    iceberg_template = env.get_template("iceberg.html")
+    iceberg_output = iceberg_template.render(profile=profile)
+    with open(os.path.join(OUTPUT_DIR, "iceberg.html"), "w") as f:
+        f.write(iceberg_output)
+    pages.append("iceberg.html")
                     
     # Generate Sitemap
     sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'

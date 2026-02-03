@@ -44,3 +44,15 @@
   tags: ["Generative AI", "Customer Support", "Cost Reduction"]
   technologies: ["Docker", "Python", "Azure"]
 
+- title: "Global Trade Network Graph"
+  slug: "global-trade-network"
+  description: "Graph-based analysis of sub-tier global trade networking."
+  challenge: "Lack of visibility into complex multi-tier supply chain nodes and geographic connections."
+  solution: "Implemented a graph networking model to map nodes and locations for deep-tier visibility."
+  impact: "Unlocked granular insights into global trade dependencies and sub-tier risks."
+  tags: ["Supply Chain", "Graph Data", "Global Trade"]
+  technologies: ["Neo4j", "AWS", "Docker", "Databricks"]
+
+  tags: ["Supply Chain", "Graph Data", "Global Trade"]
+  technologies: ["Neo4j", "AWS", "Docker", "Databricks"]
+

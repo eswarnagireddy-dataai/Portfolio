@@ -23,6 +23,7 @@
         <ul class="nav-links">
             <li><a href="index.html#expertise">Expertise</a></li>
             <li><a href="index.html#projects">Engagements</a></li>
+            <li><a href="iceberg.html">Iceberg</a></li>
             <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
         </ul>
     </nav>
@@ -625,6 +626,38 @@ By turning **Data into Directions**, we didn't just speed up the factory; we emp
             };
             new ApexCharts(document.getElementById("automotive-time-chart"), options).render();
         }
+
+        // Global Trade Network Chart
+        if (document.getElementById("graph-nodes-chart")) {
+            const options = {
+                ...chartDefaults,
+                chart: { ...chartDefaults.chart, type: 'bar', height: 350, stacked: true },
+                series: [{
+                    name: 'Visible Tier 1 Nodes',
+                    data: [2500, 2500]
+                }, {
+                    name: 'Discovered Sub-Tier Nodes',
+                    data: [0, 15000]
+                }],
+                xaxis: {
+                    categories: ['Before Graph Model', 'After Graph Model'],
+                },
+                colors: ['#334155', '#00b4d8'],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 8,
+                        columnWidth: '40%'
+                    }
+                },
+                title: {
+                    text: 'Supply Chain Visibility Expansion',
+                    style: { color: '#f8fafc', fontSize: '18px' }
+                }
+            };
+            new ApexCharts(document.getElementById("graph-nodes-chart"), options).render();
+        }
+
+    }
     });
 </script>
 

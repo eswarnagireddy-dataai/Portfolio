@@ -309,62 +309,61 @@
     <div class="container">
         <div class="case-study-header">
             <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
-            <h1 class="case-study-title">Case Study: Enterprise Data Strategy for E-Commerce</h1>
+            <h1 class="case-study-title">Case Study: Global Trade Network Graph Analysis</h1>
         </div>
 
         <div class="case-study-content markdown-body">
-            <h1>Case Study: Enterprise Data Strategy for E-Commerce</h1>
+            <h1>Case Study: Global Trade Network Graph Analysis</h1>
 <h2>Part 1: The STAR Analysis</h2>
 <div class="star-grid">
 <div class="star-box">
 <h3>Situation</h3>
-A high-growth D2C brand was scaling rapidly but flying blind. Marketing spend was spread across Meta, Google, and TikTok, while inventory was managed in a separate ERP. No unified view of LTV or CAC existed.
+A major logistics client faced a <strong>"black box" supply chain</strong>. They had visibility into Tier 1 suppliers but zero insight into sub-tier dependencies. A disruption in a Tier 3 raw material supplier in Vietnam could silently derail production lines in Germany weeks later.
 </div>
 
 <div class="star-box">
 <h3>Task</h3>
-Implement a lean, high-impact data strategy to unify disparate data sources and provide real-time visibility into the metrics that matter for scaling a retail business.
+Map the invisible. Build a graph-based connectivity model to illuminate deep-tier nodes, relationships, and geographic risks across the global trade network, enabling proactive risk management.
 </div>
 
 <div class="star-box">
 <h3>Action</h3>
-I designed a "Minimum Viable Data Stack":
+I architected a graph solution using <strong>Neo4j</strong> and <strong>AWS</strong>:
 <ul>
-<li><strong>Centralized Warehouse:</strong> Automated ingestion from Shopify, Meta, and GA4.</li>
-<li><strong>Unified Attribution:</strong> Cross-channel engine to identify true conversion drivers.</li>
-<li><strong>Inventory Bridge:</strong> Automatically pause ads for low-stock items.</li>
+<li><strong>Data Fusion:</strong> Ingested unstructured trade data (Bills of Lading, customs filings) via Databricks.</li>
+<li><strong>Graph Modeling:</strong> Modeled suppliers, ports, and factories as nodes; trade lanes as edges with volume properties.</li>
+<li><strong>Risk Propagation:</strong> Algorithms to simulate disruption cascading effects across the graph.</li>
 </ul>
 </div>
 
 <div class="star-box">
 <h3>Result</h3>
 <ul>
-<li><strong>25% Improvement</strong> in Marketing ROI.</li>
-<li><strong>18% Reduction</strong> in CAC.</li>
-<li><strong>$200k Savings</strong> by preventing stockout ad spend.</li>
-<li><strong>15 hrs/week</strong> saved for the finance team.</li>
+<li><strong>Mult-Tier Visibility:</strong> Mapped 15,000+ previously hidden sub-tier nodes.</li>
+<li><strong>Risk Mitigation:</strong> Identified 12 critical single points of failure deep in the network.</li>
+<li><strong>Agility:</strong> Reduced impact analysis time from weeks to minutes during geopolitical events.</li>
 </ul>
 </div>
 </div>
 
 <hr />
-<h2>Part 2: The Story: Simplicity Over Complexity</h2>
+<h2>Part 2: The Story: Mapping the Butterfly Effect</h2>
 <div class="story-split">
 <div class="story-text">
 
-The client didn't need a massive enterprise data lake; they needed answers to three questions: *Which ads are actually working? Which customers are worth scaling? And do we have enough stock to fulfill the demand?*
+The client’s supply chain officer described their problem as "fighting ghosts." They knew disruptions were coming, but they never knew from where until it was too late. My challenge was to turn millions of scattered customs records into a coherent *map of the world*.
 
-We ignored the complex "big data" hype and focused on **Data Connectivity**. 
+We used **Neo4j** to build a knowledge graph where every node represented a physical entity—a factory, a port, a warehouse. But the real magic happened in the edges. We didn't just map "A connects to B"; we mapped "A relies on B for 30% of critical input X."
 
-By connecting their warehouse data to their marketing data, we discovered that they were spending $4,000 a week advertising a specific sneaker that was nearly out of stock. 
+When a major port strike hit in 2024, while competitors were scrambling to call suppliers, our client’s dashboard lit up red. The system traced the disruption through four layers of the supply chain instantly. They re-routed shipments *before* the bottleneck physically occurred.
 
-We implemented a simple "Automation Bridge": when stock fell below 10 units, the Meta Ad campaign was automatically suppressed. This one change alone paid for the entire data initiative within three weeks.
+> "We stopped reacting to disasters and started predicting them. This graph is the nervous system of our operations."
 </div>
 
 <div class="story-plot">
 
-<div id="marketing-roi-chart"></div>
-<p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: ROAS Improvement (Unified Strategy)</em></p>
+<div id="graph-nodes-chart"></div>
+<p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 1rem;"><em>Figure 1: Node Discovery (Tier 1 vs Sub-Tier)</em></p>
 
 </div>
 </div>
