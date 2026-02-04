@@ -160,9 +160,54 @@
             position: relative;
         }
 
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-image-container {
+            flex: 0 0 320px;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 20px;
+            /* Remove border and shadow for seamless blend */
+            /* border: 1px solid rgba(255, 255, 255, 0.1); */
+            /* box-shadow: 0 0 40px rgba(0, 180, 216, 0.15); */
+
+            /* Gradient Mask to fade bottom and soften edges */
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+
+            /* Slight opacity to help blend with dark background */
+            /* opacity: 0.95; */
+
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: translateY(-5px);
+            /* border-color: var(--primary); */
+        }
+
         .hero-content {
-            text-align: center;
-            max-width: 900px;
+            flex: 1;
+            text-align: left;
         }
 
         .hero-badge {
@@ -177,7 +222,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             line-height: 1.1;
             margin-bottom: 1.5rem;
         }
@@ -193,14 +238,41 @@
             font-size: 1.25rem;
             color: var(--gray);
             max-width: 700px;
-            margin: 0 auto 2.5rem;
+            margin: 0 0 2.5rem 0;
+            /* Align left */
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
+            justify-content: flex-start;
+            /* Align left */
             flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 4rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-image-container {
+                max-width: 250px;
+                margin-bottom: 2rem;
+            }
+
+            .hero p {
+                margin: 0 auto 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
         }
 
         .btn {
@@ -714,13 +786,18 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">Available for Strategic Advisory</span>
-            <h1>Strategic and <span class="gradient-text">Technical</span> Data & AI Advisor</h1>
-            <p>Partnering with Mittelstand leaders and forward-thinking executives to unlock the value of data and AI. I bridge the gap between technical complexity and business strategy to drive pragmatic, high-impact results for mid-market organizations.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Book Consultation</a>
-                <a href="#projects" class="btn btn-secondary">View Impact</a>
+        <div class="hero-container">
+            <div class="hero-image-container">
+                <img src="static/img/01_Eswar Nagireddy.jpg" alt="Eswar Nagireddy" class="profile-image">
+            </div>
+            <div class="hero-content">
+                <span class="hero-badge">Available for Strategic Advisory</span>
+                <h1>Strategic and <span class="gradient-text">Technical</span> Data & AI Advisor</h1>
+                <p>Partnering with Mittelstand leaders and forward-thinking executives to unlock the value of data and AI. I bridge the gap between technical complexity and business strategy to drive pragmatic, high-impact results for mid-market organizations.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                    <a href="#projects" class="btn btn-secondary">View Impact</a>
+                </div>
             </div>
         </div>
     </section>
